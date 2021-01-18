@@ -1,0 +1,12 @@
+{
+  "name": "B-fight",
+  "displayName": "B-fight",
+  "expo": {
+    "name": "B-fight",
+    "slug": "B-fight",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
