@@ -15,6 +15,7 @@ export default function App() {
     <NavigationContainer>{
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Menu" component={Menu} />
+        <Stack.Screen name="Single" component={Single} />
         <Stack.Screen name="Multi" component={Multi} />
         <Stack.Screen name="Options" component={Options} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
