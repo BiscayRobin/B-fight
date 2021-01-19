@@ -1,26 +1,35 @@
 import React from 'react'
 import { StyleSheet, View, Button, Text } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import {StackNavigator} from 'react-navigation';
 
 const Separator = () => (
   <View style={styles.separator} />
 );
 
+const App = StackNavigator({
+  Single: { screen: Single},
+  Multi: { screen: Multi},
+  Options: { screen: Options},
+  AboutUs: { screen: AboutUs },
+});
+
 class Menu extends React.Component {
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
           <Text style={styles.title}> Welcome to B-fight ! </Text>
         </View>
         <View style={styles.buttonWrapper}>
-          <Button type="solid" raised="true" color='#034f84' title="Single Player" onPress={() => {}} />
+          <Button type="solid" raised="true" color='#034f84' title="Single Player" onPress={() => navigate('Single')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title="Multi Player" onPress={() => {}} />
+          <Button type="solid" raised="true" color='#034f84' title=" Multi Player " onPress={() => navigate('Multi')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title="Options" onPress={() => {}}/>
+          <Button type="solid" raised="true" color='#034f84' title="      Options      " onPress={() => navigate('Options')}/>
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title="About us" onPress={() => {}}/>
+          <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
         </View>
         <View style={styles.textWrapper}>
           <Text style={styles.version}> Version 1.0 </Text>
