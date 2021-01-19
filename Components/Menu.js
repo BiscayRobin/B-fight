@@ -11,7 +11,6 @@ const Separator = () => (
   <View style={styles.separator} />
 );
 
-
 class Menu extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
@@ -29,6 +28,7 @@ class Menu extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
         </View>
+        <Separator />
         <View style={styles.textWrapper}>
           <Text style={styles.version}> Version 1.0 </Text>
         </View>
