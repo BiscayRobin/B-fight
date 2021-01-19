@@ -2,17 +2,15 @@ import React from 'react'
 import { StyleSheet, View, Button, Text } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {StackNavigator} from 'react-navigation';
+import AboutUs from './AboutUs';
+import Multi from './Multi';
+import Single from './Single';
+import Options from './Options';
 
 const Separator = () => (
   <View style={styles.separator} />
 );
 
-const App = StackNavigator({
-  Single: { screen: Single},
-  Multi: { screen: Multi},
-  Options: { screen: Options},
-  AboutUs: { screen: AboutUs },
-});
 
 class Menu extends React.Component {
   render() {

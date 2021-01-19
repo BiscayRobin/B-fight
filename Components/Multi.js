@@ -11,3 +11,5 @@ class Multi extends React.Component {
     )
   }
 }
+
+export default Multi

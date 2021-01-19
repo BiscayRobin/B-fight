@@ -11,3 +11,5 @@ class Single extends React.Component {
     )
   }
 }
+
+export default Single

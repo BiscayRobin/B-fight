@@ -11,3 +11,5 @@ class Options extends React.Component {
     )
   }
 }
+
+export default Options
