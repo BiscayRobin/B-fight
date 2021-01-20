@@ -13,10 +13,6 @@ class Single extends React.Component {
       <View style={styles.container}>
         <View style={styles.buttonWrapper}>
           <Button type="solid" raised="true" color='#034f84' title="Play" onPress={() => navigate('Play')} />
-          <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" HighScore " onPress={() => navigate('HighScore')} />
-          <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" AscendingOrder " onPress={() => navigate('AscendingOrder')} />
         </View>
         <Separator />
         <View style={styles.textWrapper}>
