@@ -1,30 +1,18 @@
 import React from 'react'
 import { StyleSheet, View, Button, Text } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {StackNavigator} from 'react-navigation';
-import Play from './Play'
-import HighScore from './HighScore'
-import Calculation from './Games/Calculation'
 
 const Separator = () => (
   <View style={styles.separator} />
 );
 
-class Single extends React.Component {
+class Calculation extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.buttonWrapper}>
-          <Button type="solid" raised="true" color='#034f84' title="Play" onPress={() => navigate('Play')} />
-          <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" HighScore " onPress={() => navigate('HighScore')} />
-          <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" Calculation " onPress={() => navigate('Calculation')} />
-        </View>
-        <Separator />
-        <View style={styles.textWrapper}>
-          <Text style={styles.version}> Version 1.0 </Text>
+        <View style={styles.titleWrapper}>
+          <Text style={styles.title}> Calculation </Text>
         </View>
       </View>
     )
@@ -64,4 +52,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Single
+export default Calculation
