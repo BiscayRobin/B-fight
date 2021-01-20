@@ -5,6 +5,7 @@ import {StackNavigator} from 'react-navigation';
 import Play from './Play'
 import HighScore from './HighScore'
 import Calculation from './Games/Calculation'
+import AscendingOrder from './Games/AscendingOrder'
 
 const Separator = () => (
   <View style={styles.separator} />
@@ -20,7 +21,7 @@ class Single extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title=" HighScore " onPress={() => navigate('HighScore')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" Calculation " onPress={() => navigate('Calculation')} />
+          <Button type="solid" raised="true" color='#034f84' title=" AscendingOrder " onPress={() => navigate('AscendingOrder')} />
         </View>
         <Separator />
         <View style={styles.textWrapper}>
