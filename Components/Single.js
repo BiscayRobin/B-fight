@@ -1,11 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Button, Text } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import {StackNavigator} from 'react-navigation';
-import Play from './Play'
-import HighScore from './HighScore'
-import Calculation from './Games/Calculation'
-import AscendingOrder from './Games/AscendingOrder'
 
 const Separator = () => (
   <View style={styles.separator} />

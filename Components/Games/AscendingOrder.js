@@ -1,19 +1,43 @@
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-
+import Game from './Game'
 const Separator = () => (
   <View style={styles.separator} />
 );
 
-class Calculation extends React.Component {
+class AscendingOrder extends Game {
   
+  constructor(props){
+    super(props);
+    
+    this.SCORE = 200;
+    let N = 12;
+    let ROWS = 3;
+    let COL = N/ROWS;
+    let numbers = Array(N), i = 1;
+    this.wd = `${Math.floor(90 / COL) - COL * 2}%`;
+    this.hd = `${Math.floor(90 / ROWS) - ROWS * 2}%`;
+    this.N=12;
+    this.counter=0;
+    this.rows=ROWS;
+    // creates an Array [1,2,...,N]
+    while(i<=N) numbers[i-1]=i++;
+    this.numbers=numbers;
+    this.cols=COL;
+    this.tab = [];
+    for(let i=0;i<ROWS;i++){
+      this.tab.push(this.generateRow());
+    }
+}
+
   gameLost(){
-    console.log("LOST!");
+    this.next();
   }
 
   gameWon(){
-    console.log("WON!");
+    this.addToScore(this.SCORE);
+    this.next();
   }
 
   getNumber() {
@@ -47,25 +71,6 @@ class Calculation extends React.Component {
     )
   }
   render() {
-    let N = 12;
-    let ROWS = 3;
-    let COL = N/ROWS;
-    let numbers = Array(N), i = 1;
-    this.wd = `${Math.floor(90 / COL) - COL * 2}%`;
-    this.hd = `${Math.floor(90 / ROWS) - ROWS * 2}%`;
-    this.N=12;
-    this.counter=0;
-    // creates an Array [1,2,...,N]
-    while(i<=N) numbers[i-1]=i++;
-    this.numbers=numbers;
-    this.cols=COL;
-    if(this.tab==undefined){
-      this.tab = [];
-      for(let i =0;i<ROWS;i++){
-        this.tab.push(this.generateRow());
-      }
-    }
-
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
@@ -112,4 +117,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default Calculation
+export default AscendingOrder

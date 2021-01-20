@@ -1,16 +1,18 @@
 import React from 'react'
 import { StyleSheet, View, Button, Text, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import Game from './Game'
 
 const Separator = () => (
   <View style={styles.separator} />
 );
 
-class Calculation extends React.Component {
+class Calculation extends Game {
   constructor(props){
     super(props);
     this.success = false;
     this.correctAnswer = 0;
+    this.SCORE=0;
     this.state = {
       answer: ''
     }
@@ -39,7 +41,8 @@ class Calculation extends React.Component {
   }
 
   finish = () => {
-    alert('It\'s over !');
+    this.addToScore(this.SCORE);
+    this.next();
   }
 
   validate = (answer) => {
@@ -47,6 +50,7 @@ class Calculation extends React.Component {
     const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
     if (answer == this.correctAnswer) {
       this.success = true;
+      this.SCORE+=100;
       this.message = messageWin[Math.floor(Math.random() * 5)];
     }
     else {
