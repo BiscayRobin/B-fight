@@ -10,6 +10,7 @@ const Separator = () => (
 class Calculation extends Game {
   constructor(props){
     super(props);
+    this.name="Calculation";
     this.success = false;
     this.correctAnswer = 0;
     this.SCORE=0;
@@ -42,6 +43,11 @@ class Calculation extends Game {
 
   finish = () => {
     this.addToScore(this.SCORE);
+    this.round=0;
+    this.calcul = this.GenerateRandomCalcul();
+    this.success = false;
+    this.setState({ answer: ''});
+    this.textInput.clear();
     this.next();
   }
 

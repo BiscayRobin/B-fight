@@ -11,6 +11,7 @@ class AscendingOrder extends Game {
   constructor(props){
     super(props);
     
+    this.name="AscendingOrder";
     this.SCORE = 200;
     let N = 12;
     let ROWS = 3;

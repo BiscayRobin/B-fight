@@ -16,11 +16,17 @@ class Game extends React.Component {
         this.score+=score;
     }
 
+
     next(){
         const { navigate } = this.props.navigation;
-        let game = Math.floor(Math.random() * gameList.length);
-        game=gameList[game];
-        navigate(game,{score:this.score});            
+        let game = [...gameList]
+        if(this.name != undefined){
+            let ind = game.indexOf(this.name);
+            game.splice(ind,1);
+        }
+        let gameInd = Math.floor(Math.random() * game.length);
+        let chosenGame=game[gameInd];
+        navigate(chosenGame,{score:this.score});            
     }
 }
 
