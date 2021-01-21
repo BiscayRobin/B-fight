@@ -9,6 +9,7 @@ import HighScore from './Components/HighScore'
 import Play from './Components/Play'
 import Calculation from './Components/Games/Calculation'
 import AscendingOrder from './Components/Games/AscendingOrder'
+import ColoredWords from './Components/Games/ColoredWords'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="Calculation" component={Calculation} />
         <Stack.Screen name="AscendingOrder" component={AscendingOrder} />
+        <Stack.Screen name="ColoredWords" component={ColoredWords} />
         <Stack.Screen name="HighScore" component={HighScore} />
         <Stack.Screen name="Play" component={Play} />
       </Stack.Navigator>

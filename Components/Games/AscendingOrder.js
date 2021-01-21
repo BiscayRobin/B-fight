@@ -32,14 +32,36 @@ class AscendingOrder extends Game {
     }
 }
 
+  init(){
+    let N = 12;
+    let ROWS = 3;
+    let COL = N/ROWS;
+    let numbers = Array(N), i = 1;
+    this.wd = `${Math.floor(90 / COL) - COL * 2}%`;
+    this.hd = `${Math.floor(90 / ROWS) - ROWS * 2}%`;
+    this.N=12;
+    this.counter=0;
+    this.rows=ROWS;
+    // creates an Array [1,2,...,N]
+    while(i<=N) numbers[i-1]=i++;
+    this.numbers=numbers;
+    this.cols=COL;
+    this.tab = [];
+    for(let i=0;i<ROWS;i++){
+      this.tab.push(this.generateRow());
+    }
+  }
+
   gameLost(){
     alert('Wrong!');
+    this.init();
     this.next();
   }
 
   gameWon(){
     alert('Correct!');
     this.addToScore(this.SCORE);
+    this.init();
     this.next();
   }
 
