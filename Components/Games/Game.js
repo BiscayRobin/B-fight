@@ -26,9 +26,9 @@ class Game extends React.Component {
         }
         let gameInd = Math.floor(Math.random() * game.length);
         let chosenGame=game[gameInd];
-        navigate(chosenGame,{score:this.score});            
+        navigate(chosenGame,{score:this.score});
     }
 }
 
 export default Game;
-export const gameList = ["Calculation","AscendingOrder"];
+export const gameList = ["Calculation","AscendingOrder", "ColoredWords"];
