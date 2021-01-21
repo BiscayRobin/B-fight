@@ -33,10 +33,12 @@ class AscendingOrder extends Game {
 }
 
   gameLost(){
+    alert('Wrong!');
     this.next();
   }
 
   gameWon(){
+    alert('Correct!');
     this.addToScore(this.SCORE);
     this.next();
   }
@@ -63,7 +65,7 @@ class AscendingOrder extends Game {
     for(let i = 0;i<this.cols;i++){
       let num = this.getNumber();
       const press = () => this.countButton(num);
-      items.push(<View style={{ marginVertical:hp('1%'),marginHorizontal:wp('1%'), height:hp(this.hd),width:wp(this.wd), flex: 1, alignSelf: 'stretch', borderStyle:'solid',justifyContent:'center'}}><TouchableOpacity onPress={press} style={{backgroundColor:'#034f84' ,height:hp(this.hd),width:wp(this.wd), flex:1,justifyContent:'center',alignItems:'center'}}><Text>{num}</Text></TouchableOpacity></View>)
+      items.push(<View style={{ marginVertical:hp('1%'),marginHorizontal:wp('1%'), height:hp(this.hd),width:wp(this.wd), flex: 1, alignSelf: 'stretch', borderStyle:'solid',justifyContent:'center'}}><TouchableOpacity onPress={press} style={{backgroundColor:'#034f84' ,height:hp(this.hd),width:wp(this.wd), flex:1,justifyContent:'center',alignItems:'center'}}><Text style={{fontSize: hp('5%')}}>{num}</Text></TouchableOpacity></View>)
     }
     return (
       <View style={{ flex: 1, alignSelf: 'center', flexDirection: 'row'}}>
