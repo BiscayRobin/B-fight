@@ -86,7 +86,7 @@ class Calculation extends Game {
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Calculation </Text>
+          <Text style={styles.title}> Do the calculations without making a mistake ! </Text>
         </View>
         <View style={styles.textWrapper}>
           <Text style={styles.text}>
