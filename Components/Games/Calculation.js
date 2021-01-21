@@ -8,6 +8,7 @@ const Separator = () => (
 );
 
 class Calculation extends Game {
+  // Constructor
   constructor(props){
     super(props);
     this.name="Calculation";
@@ -22,6 +23,7 @@ class Calculation extends Game {
     this.round = 0;
   }
 
+  // Function to generate a random calculation
   GenerateRandomCalcul = () => {
     var RandomNumber1 = Math.floor(Math.random() * 20) + 1;
     var RandomNumber2 = Math.floor(Math.random() * 20) + 1;
@@ -37,20 +39,28 @@ class Calculation extends Game {
     return RandomNumber1.toString() + RandomOperation + RandomNumber2.toString();
   }
 
+  // Function to retrieve the answer entered by the user
   handleAnswer = (text) => {
     this.setState({ answer: text })
   }
 
-  finish = () => {
-    this.addToScore(this.SCORE);
-    this.round=0;
+  // Function to reset the parameter values once the round is over or the game is finished
+  clear = () => {
     this.calcul = this.GenerateRandomCalcul();
     this.success = false;
     this.setState({ answer: ''});
     this.textInput.clear();
+  }
+
+  // Function that is called once the game is over
+  finish = () => {
+    this.addToScore(this.SCORE);
+    this.round=0;
+    this.clear();
     this.next();
   }
 
+  // Function that validates the user's response and decides whether it is correct or not.
   validate = (answer) => {
     const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
     const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
@@ -65,10 +75,7 @@ class Calculation extends Game {
     if (this.round == 5) {
       this.finish();
     } else {
-      this.calcul = this.GenerateRandomCalcul();
-      this.success = false;
-      this.setState({ answer: ''});
-      this.textInput.clear();
+      this.clear();
       this.round += 1;
     }
   }
