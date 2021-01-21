@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Button, Text, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import Game from './Game'
+import {Game} from './Game'
 
 const Separator = () => (
   <View style={styles.separator} />

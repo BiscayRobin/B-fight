@@ -19,7 +19,7 @@ class Game extends React.Component {
 
     next(){
         const { navigate } = this.props.navigation;
-        let game = [...gameList]
+        let game = [...gameList];
         if(this.name != undefined){
             let ind = game.indexOf(this.name);
             game.splice(ind,1);
@@ -30,6 +30,8 @@ class Game extends React.Component {
     }
 }
 
-export default Game;
-export const gameList = ["Calculation","AscendingOrder", "ColoredWords"];
-export const images = ["../imgages/bird.png","../imgages/cat.png","../imgages/clown-fish.png","../imgages/cocker-spaniel.png","../imgages/elephant.png","../imgages/fish.png","../imgages/koala.png","../imgages/owl.png","../imgages/shark.png","../imgages/mental-health.png"];
+const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols"];
+const images = ["../imgages/bird.png","../imgages/cat.png","../imgages/clown-fish.png","../imgages/cocker-spaniel.png","../imgages/elephant.png","../imgages/fish.png","../imgages/koala.png","../imgages/owl.png","../imgages/shark.png","../imgages/mental-health.png"];
+
+
+export {Game, gameList, images};
