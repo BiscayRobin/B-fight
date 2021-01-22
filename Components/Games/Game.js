@@ -31,7 +31,18 @@ class Game extends React.Component {
 }
 
 const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols"];
-const images = ["../imgages/bird.png","../imgages/cat.png","../imgages/clown-fish.png","../imgages/cocker-spaniel.png","../imgages/elephant.png","../imgages/fish.png","../imgages/koala.png","../imgages/owl.png","../imgages/shark.png","../imgages/mental-health.png"];
+//const images = ["./images/bird.png","./images/cat.png","./images/clown-fish.png","./images/cocker-spaniel.png","./images/elephant.png","./images/fish.png","./images/koala.png","./images/owl.png","./images/shark.png","./images/mental-health.png"];
+const images= {
+    "bird.png":require("./images/bird.png"),
+    "cat.png":require('./images/cat.png'),
+    "clown-fish.png":require("./images/clown-fish.png"),
+    "cocker-spaniel.png":require("./images/cocker-spaniel.png"),
+    "elephant.png":require("./images/elephant.png"),
+    "fish.png":require("./images/fish.png"),
+    "koala.png":require("./images/koala.png"),
+    "owl.png":require("./images/owl.png"),
+    "shark.png":require("./images/shark.png"),
+    "mental-health.png":require("./images/mental-health.png")
+};
 
-
-export {Game, gameList, images};
+export {Game, gameList, images,};
