@@ -11,6 +11,7 @@ import Calculation from './Components/Games/Calculation'
 import AscendingOrder from './Components/Games/AscendingOrder'
 import ColoredWords from './Components/Games/ColoredWords'
 import Symbols from './Components/Games/Symbols'
+import Balls from './Components/Games/Balls'
 import Memory from './Components/Games/Memory/Memory'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -33,6 +34,7 @@ export default function App() {
         <Stack.Screen name="Play" component={Play} />
         <Stack.Screen name="Symbols" component={Symbols} />
         <Stack.Screen name="Memory" component={Memory} />
+        <Stack.Screen name="Balls" component={Balls} />
       </Stack.Navigator>
     }</NavigationContainer>
   );

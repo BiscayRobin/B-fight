@@ -30,7 +30,7 @@ class Game extends React.Component {
     }
 }
 
-const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols", "Memory"];
+const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols","Balls","Memory"];
 //const images = ["./images/bird.png","./images/cat.png","./images/clown-fish.png","./images/cocker-spaniel.png","./images/elephant.png","./images/fish.png","./images/koala.png","./images/owl.png","./images/shark.png","./images/mental-health.png"];
 const images= {
     "bird.png":require("./images/bird.png"),
