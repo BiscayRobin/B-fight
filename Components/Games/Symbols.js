@@ -7,7 +7,7 @@ const Separator = () => (
 );
 
 class Symbols extends Game {
-  
+
   constructor(props){
     super(props);
     this.name="Symbols";

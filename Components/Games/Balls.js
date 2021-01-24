@@ -97,9 +97,9 @@ class Balls extends Game {
     Animated.timing(this.state[`position${key}`], {
       toValue: { x: ball.x, y: ball.y },
       easing: Easing.linear,
-      duration: 1000
+      duration: 1000,
+      useNativeDriver: false
     }).start(() => {
-      console.log("coucou");
       if(this.mounted){
         const pos = this.state[`position${key}`];
         pos.stopAnimation(() => {
@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
     color: '#eea29a'
   },
   ball: {
-    borderRadius: '10%',
+    borderRadius: 10,
     width: wp('5%'),
     height: wp('5%'),
     position: 'absolute',

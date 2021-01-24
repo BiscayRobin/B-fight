@@ -18,8 +18,7 @@ export default class Card extends React.Component {
 		}
 
 		return (
-			<View style={{ marginVertical:hp('1%'),marginHorizontal:wp('1%'),
-      height:hp(this.hd),width:wp(this.wd), flex: 1, alignSelf: 'stretch', borderStyle:'solid',
+			<View style={{ marginVertical:hp('1%'),marginHorizontal:wp('1%'), flex: 1, alignSelf: 'stretch', borderStyle:'solid',
       justifyContent:'center'}}>
 				<TouchableOpacity onPress={this.props.game} style={{backgroundColor:'#034f84' ,
 				flex:1,justifyContent:'center',alignItems:'center'}}>
