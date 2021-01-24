@@ -157,7 +157,7 @@ class Balls extends Game {
         <View style={styles.titleWrapper}>
           <Text style={styles.title}> Count the squares! </Text>
         </View>
-        <View style={{ backgroundColor: '#deeaee', width: wp('90%'), height: hp('60%'), alignSelf: 'center' }}>
+        <View style={{flex:1, overflow: 'hidden', backgroundColor: '#deeaee', width: wp('90%'), height: hp('60%'), alignSelf: 'center' }}>
           {
             this.balls.map(((ball, key) => {
               return (
@@ -168,7 +168,7 @@ class Balls extends Game {
             }))
           }
         </View>
-        <View style={{ backgroundColor: '#b1cbbb', width: wp('90%'), height: hp('20%'), alignSelf: 'center' }}>
+        <View style={{ backgroundColor: '#b1cbbb', width: wp('90%'), height: hp('24%'), alignSelf: 'center' }}>
           <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'center', flexDirection: 'column' }}>
             <View style={{ justifyContent: 'center' }}>
               <View style={[styles.ball, { backgroundColor: this.chosenColor, width: wp('2%'), height: wp('2%') }]}></View>
