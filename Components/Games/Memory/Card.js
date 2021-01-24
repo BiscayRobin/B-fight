@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Game, images} from '../Game';
 
@@ -21,7 +21,7 @@ export default class Card extends React.Component {
 			<View style={{ marginVertical:hp('1%'),marginHorizontal:wp('1%'),
       height:hp(this.hd),width:wp(this.wd), flex: 1, alignSelf: 'stretch', borderStyle:'solid',
       justifyContent:'center'}}>
-				<TouchableOpacity onPress={this.props.clickCard} style={{backgroundColor:'#034f84' ,
+				<TouchableOpacity onPress={this.props.game} style={{backgroundColor:'#034f84' ,
 				flex:1,justifyContent:'center',alignItems:'center'}}>
 					<Image style={styles.image} source={card_source}/>
 				</TouchableOpacity>

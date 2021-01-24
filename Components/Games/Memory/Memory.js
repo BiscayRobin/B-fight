@@ -5,45 +5,47 @@ import {Game, images} from '../Game';
 import Card from './Card';
 
 class Memory extends Game {
+  // Constructor
   constructor(props) {
     super(props);
     this.name = "Memory";
     this.SCORE = 0;
     this.MAX_FAIL = 30;
     this.fail = 0;
+    this.message = "";
     this.generateCards = this.generateCards.bind(this);
     this.resetCards = this.resetCards.bind(this);
 
     let cards = [
       {
-        nameC: "bird.png"
+        nameCard: "bird.png"
       },
       {
-        nameC: "cat.png"
+        nameCard: "cat.png"
       },
       {
-        nameC: "clown-fish.png"
+        nameCard: "clown-fish.png"
       },
       {
-        nameC: "cocker-spaniel.png"
+        nameCard: "cocker-spaniel.png"
       },
       {
-        nameC: "elephant.png"
+        nameCard: "elephant.png"
       },
       {
-        nameC: "fish.png"
+        nameCard: "fish.png"
       },
       {
-        nameC: "koala.png"
+        nameCard: "koala.png"
       },
       {
-        nameC: "mental-health.png"
+        nameCard: "mental-health.png"
       },
       {
-        nameC: "owl.png"
+        nameCard: "owl.png"
       },
       {
-        nameC: "shark.png"
+        nameCard: "shark.png"
       }
     ];
 
@@ -53,11 +55,11 @@ class Memory extends Game {
     this.cards.map((obj) => {
       let id = Math.random().toString(36).substring(7);
       obj.id = id;
-      obj.src = images[obj.nameC];
+      obj.src = images[obj.nameCard];
       obj.is_open = false;
     });
 
-    this.shuffle();
+    this.shuffle(this.cards.length);
     this.state = {
       current_selection: [],
       selected_pairs: [],
@@ -65,14 +67,17 @@ class Memory extends Game {
     }
   }
 
-  shuffle() {
-    var i = this.cards.length, j, temp;
-    if(i == 0) return this.cards;
-    while(--i){
-     j = Math.floor(Math.random() * (i + 1));
-     temp = this.cards[i];
-     this.cards[i] = this.cards[j];
-     this.cards[j] = temp;
+  // Function to shuffle the cards
+  shuffle(n) {
+    if(n == 0) {
+      n = this.cards.length;
+    }
+    if(n > 1) {
+      var i = Math.floor((n - 1)*Math.random());
+      var tmp = this.cards[i];
+      this.cards[i] = this.cards[n-1];
+      this.cards[n-1] = tmp;
+      this.shuffle(n-1);
     }
   }
 
@@ -80,7 +85,12 @@ class Memory extends Game {
     return (
       <View style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Find the cards that are the same.</Text>
+        <Text style={styles.title}>Find the cards that are the same !</Text>
+      </View>
+      <View style={styles.textWrapper}>
+        <Text style={styles.text}> You have {this.MAX_FAIL} failures allowed. </Text>
+        <Text style={styles.text}> Number of failures: {this.fail}. </Text>
+        <Text style={styles.text}> {this.message} </Text>
       </View>
       <View style={{flex:1, alignSelf:'center', height: hp('90%'),width:wp('90%')}}>
         {this.generateRows.call(this)}
@@ -89,85 +99,110 @@ class Memory extends Game {
     )
   }
 
+  // Function that is called when the game is lost
   gameLost(){
     alert('Wrong!');
     this.resetCards();
     this.next();
   }
 
+  // Function that is called when the game is won
   gameWon(){
     alert('Correct!');
-    this.resetCards();
     this.addToScore(this.SCORE);
+    this.resetCards();
     this.next();
   }
 
+  // Function to reset the cards
   resetCards() {
-    let cards = this.cards.map((obj) => {
-      obj.is_open = false;
-      return obj;
+    let cards = this.cards.map((card) => {
+      card.is_open = false;
+      return card;
     });
 
-    this.shuffle();
+    this.shuffle(cards.length);
 
     this.setState({
       current_selection: [],
       selected_pairs: [],
       cards: cards
     });
+
     this.SCORE = 0;
+    this.fail = 0;
+    this.message = "";
   }
 
+  // Function that creates the content of the lines
+  getRowCards(cards) {
+    let cardsRow = [];
+    let cardsForARow = [];
+    let count = 0;
+    cards.forEach((card) => {
+      count++;
+      cardsForARow.push(card);
+      if(count == 5) {
+        cardsRow.push(cardsForARow)
+        cardsForARow = [];
+        count = 0;
+      }
+    });
+    return cardsRow;
+  }
 
+  // Function that generates lines
   generateRows() {
-
-    let contents = this.getRowContents(this.state.cards);
-    return contents.map((cards, index) => {
+    let rows = this.getRowCards(this.state.cards);
+    return rows.map((cards) => {
       return (
         <View style={{ flex: 1, alignSelf: 'center', flexDirection: 'row'}}>
-          { this.generateCards(cards) }
+          {this.generateCards(cards)}
         </View>
       );
     });
-
   }
 
-
+  // Function that generates the cards display
   generateCards(cards) {
     return cards.map((card, index) => {
       return (
         <Card
           key={index}
           src={card.src}
-          name={card.nameC}
+          name={card.nameCard}
           is_open={card.is_open}
-          clickCard={this.clickCard.bind(this, card.id)}
+          game={this.game.bind(this, card.id)}
         />
       );
     });
   }
 
-
-  clickCard(id) {
+  // Function that defines the operation of the game
+  game(id) {
     let selected_pairs = this.state.selected_pairs;
     let current_selection = this.state.current_selection;
+    const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
+    const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
     let index = this.state.cards.findIndex((card) => {
       return card.id == id;
     });
 
     let cards = this.state.cards;
 
-    if(cards[index].is_open == false && selected_pairs.indexOf(cards[index].nameC) === -1) {
+    if(cards[index].is_open == false && selected_pairs.indexOf(cards[index].nameCard) === -1) { // when only one card is open
       cards[index].is_open = true;
       current_selection.push({
         index: index,
-        name: cards[index].nameC
+        name: cards[index].nameCard
       });
 
-      if(current_selection.length == 2) {
-        if(current_selection[0].name == current_selection[1].name) {
-          selected_pairs.push(cards[index].nameC);
+      if(current_selection.length == 2) { // when two cards are open
+        if(current_selection[0].name == current_selection[1].name) { // when the two cards are identical
+          selected_pairs.push(cards[index].nameCard);
+          this.message = messageWin[Math.floor(Math.random() * messageWin.length)];
         } else {
+          this.message = messageLose[Math.floor(Math.random() * messageLose.length)];
           this.fail++;
           cards[current_selection[0].index].is_open = false;
           setTimeout(() => {
@@ -185,29 +220,13 @@ class Memory extends Game {
         current_selection: current_selection
       });
     }
-    if (selected_pairs.length == (this.cards.length/2)) {
+    if (selected_pairs.length == (this.cards.length/2)) { // Win
       this.SCORE += 500;
       this.gameWon();
     }
-    if (this.fail == this.MAX_FAIL) {
+    if (this.fail == this.MAX_FAIL) { // Lose
       this.gameLost();
     }
-  }
-
-  getRowContents(cards) {
-    let contents_r = [];
-    let contents = [];
-    let count = 0;
-    cards.forEach((item) => {
-      count += 1;
-      contents.push(item);
-      if(count == 4) {
-        contents_r.push(contents)
-        count = 0;
-        contents = [];
-      }
-    });
-    return contents_r;
   }
 }
 
@@ -224,6 +243,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: hp('5%'),
     color: '#f7786b'
+  },
+  textWrapper: {
+    height: hp('10%'),
+    width: wp('100%')
+  },
+  text: {
+    textAlign: "center",
+    fontSize: hp('2%'),
+    color: '#c94c4c'
   }
 })
 
