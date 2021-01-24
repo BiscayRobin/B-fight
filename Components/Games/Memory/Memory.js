@@ -10,7 +10,7 @@ class Memory extends Game {
     super(props);
     this.name = "Memory";
     this.SCORE = 0;
-    this.MAX_FAIL = 30;
+    this.MAX_FAIL = 20;
     this.fail = 0;
     this.message = "";
     this.generateCards = this.generateCards.bind(this);
