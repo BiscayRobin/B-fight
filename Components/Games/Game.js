@@ -30,7 +30,7 @@ class Game extends React.Component {
     }
 }
 
-const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols"];
+const gameList = ["Calculation","AscendingOrder", "ColoredWords","Symbols", "Memory"];
 //const images = ["./images/bird.png","./images/cat.png","./images/clown-fish.png","./images/cocker-spaniel.png","./images/elephant.png","./images/fish.png","./images/koala.png","./images/owl.png","./images/shark.png","./images/mental-health.png"];
 const images= {
     "bird.png":require("./images/bird.png"),
@@ -42,7 +42,8 @@ const images= {
     "koala.png":require("./images/koala.png"),
     "owl.png":require("./images/owl.png"),
     "shark.png":require("./images/shark.png"),
-    "mental-health.png":require("./images/mental-health.png")
+    "mental-health.png":require("./images/mental-health.png"),
+    "interrogation_point.png":require("./images/interrogation_point.png")
 };
 
 export {Game, gameList, images,};
