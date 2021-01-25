@@ -56,8 +56,8 @@ class Balls extends Game {
   }
 
   componentDidMount() {
-    this.setupBalls();
     this.mounted=true;
+    this.setupBalls();
   }
 
   setupBalls() {
