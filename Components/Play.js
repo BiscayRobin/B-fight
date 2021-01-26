@@ -8,6 +8,7 @@ class Play extends React.Component {
     const { navigate } = this.props.navigation;
     let i = Math.floor(Math.random() * gameList.length);
     let game=gameList[i];
+    global.multiplayer=false;
     navigate(game);
   }
 

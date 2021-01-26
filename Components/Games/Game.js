@@ -4,16 +4,25 @@ class Game extends React.Component {
 
     constructor(props){
         super(props);
-        if(props.route.score == undefined){
-            this.score=0;
-        }else{
-            this.score=props.route.score;
+        if(global.score == undefined){
+            global.score=0;
         }
-        console.log(this.score);
+        if(global.lives == undefined){
+            global.lives=3;
+        }
+        console.log(global.score);
     }
 
     addToScore(score){
-        this.score+=score;
+        global.score+=score;
+    }
+
+    gameEnd(){
+        //...
+        if(global.multiplayer){
+            global.ws.send(`end:${global.score}`);
+            global.isPlaying=false;
+        }
     }
 
 
@@ -26,7 +35,7 @@ class Game extends React.Component {
         }
         let gameInd = Math.floor(Math.random() * game.length);
         let chosenGame=game[gameInd];
-        navigate(chosenGame,{score:this.score});
+        navigate(chosenGame);
     }
 }
 
