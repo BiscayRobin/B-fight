@@ -20,7 +20,7 @@ class Game extends React.Component {
     gameEnd(){
         //...
         if(global.multiplayer){
-            global.ws.send(`end:${global.score}`);
+            global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
         }
     }

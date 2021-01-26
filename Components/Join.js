@@ -1,6 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Button, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { io } from 'socket.io-client';
+import {Game,gameList} from './Games/Game'
+
 
 class Join extends React.Component {
 
@@ -12,51 +15,34 @@ class Join extends React.Component {
         global.score = 0;
         global.advScore = 0;
         this.beginGame = this.beginGame.bind(this);
-        global.ws = new WebSocket('ws://127.0.0.1:5000');
-        global.ws.onopen = () => {
-            global.ws.send('lala');
+
+        global.ws = io('ws://127.0.0.1:5000');
+        global.ws.on("connect", ()=>{
             console.log('connected');
             global.connected=true;
-        };
-        global.ws.onmessage = (e) => {
-            let mess = e.data.split(':');
-            if(mess[0]=='begin'){
-                global.isPlaying=true;
-                console.log('begin');
-                this.beginGame();
-            }else if(mess[0]=='end'){
-                global.advScore=parseInt(mess[1]);
-                console.log(e.data);
-                global.ws.send(`end:${global.score}`);
-                global.isPlaying=false;
-                global.ws.close('end');
-                global.ws.connected=false;
-            }else{
-                console.log(`Unknown message: ${e.data}`);
-            }
-        };
-        global.ws.onerror = (e) => {
-            // an error occurred
-            if(e.message==undefined){
-                alert(`Error: Couldn't connect to server`);
-            }else{
-                alert(`An error has occured: ${e.message}`);
-                global.ws.close('The opponent was disconnected');
-            }
+        });
+
+        global.ws.on("begin", ()=>{
+            global.isPlaying=true;
+            console.log('begin');
+            this.beginGame();
+        });
+
+        global.ws.on("end", (msg)=>{
+            global.advScore=parseInt(msg);
+            console.log(msg);
+            global.ws.emit('end',`${global.score}`);
+            global.isPlaying=false;
+            global.ws.close('end');
+            global.ws.connected=false;
+        });
+
+        global.ws.on("disconnect", (reason)=>{
+            console.log(reason);
             global.connected=false;
-        };
-        global.ws.onclose = (e) => {
-            // connection closed
-            if(e.code==undefined){
-                console.log(e.reason);
-            }else if(e.reason==undefined){
-                console.log(e.code);
-            }else{
-                console.log(e.code, e.reason);
-            }
-            global.connected=false;
-        };
+        });
     }
+
 
     beginGame(){
         const { navigate } = this.props.navigation;
