@@ -6,13 +6,13 @@ class Join extends React.Component {
 
     constructor(props) {
         super(props);
-        global.ws = new WebSocket('ws://127.0.0.1:5000');
         global.multiplayer = true;
         global.isPlaying = false;
-        global.connected = true;
+        global.connected = false;
         global.score = 0;
         global.advScore = 0;
         this.beginGame = this.beginGame.bind(this);
+        global.ws = new WebSocket('ws://127.0.0.1:5000');
         global.ws.onopen = () => {
             global.ws.send('lala');
             console.log('connected');
