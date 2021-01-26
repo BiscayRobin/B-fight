@@ -1,4 +1,3 @@
-import React from 'react'
 import React, {
   useState,
   useEffect,
@@ -139,10 +138,10 @@ class Multi extends React.Component {
   useEffect(){
     BleManager.start({showAlert: false});
 
-    bleManagerEmitter.addListener('BleManagerDiscoverPeripheral', handleDiscoverPeripheral);
-    bleManagerEmitter.addListener('BleManagerStopScan', handleStopScan );
-    bleManagerEmitter.addListener('BleManagerDisconnectPeripheral', handleDisconnectedPeripheral );
-    bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic', handleUpdateValueForCharacteristic );
+    bleManagerEmitter.addListener('BleManagerDiscoverPeripheral', this.handleDiscoverPeripheral);
+    bleManagerEmitter.addListener('BleManagerStopScan', this.handleStopScan );
+    bleManagerEmitter.addListener('BleManagerDisconnectPeripheral', this.handleDisconnectedPeripheral );
+    bleManagerEmitter.addListener('BleManagerDidUpdateValueForCharacteristic', this.handleUpdateValueForCharacteristic );
 
     if (Platform.OS === 'android' && Platform.Version >= 23) {
       PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION).then((result) => {
@@ -162,10 +161,10 @@ class Multi extends React.Component {
 
     return (() => {
       console.log('unmount');
-      bleManagerEmitter.removeEventListener('BleManagerDiscoverPeripheral', handleDiscoverPeripheral);
-      bleManagerEmitter.removeEventListener('BleManagerStopScan', handleStopScan );
-      bleManagerEmitter.removeEventListener('BleManagerDisconnectPeripheral', handleDisconnectedPeripheral );
-      bleManagerEmitter.removeEventListener('BleManagerDidUpdateValueForCharacteristic', handleUpdateValueForCharacteristic );
+      bleManagerEmitter.removeEventListener('BleManagerDiscoverPeripheral', this.handleDiscoverPeripheral);
+      bleManagerEmitter.removeEventListener('BleManagerStopScan', this.handleStopScan );
+      bleManagerEmitter.removeEventListener('BleManagerDisconnectPeripheral', this.handleDisconnectedPeripheral );
+      bleManagerEmitter.removeEventListener('BleManagerDidUpdateValueForCharacteristic', this.handleUpdateValueForCharacteristic );
     })
   }
 
