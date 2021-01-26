@@ -7,6 +7,8 @@ import Options from './Components/Options'
 import AboutUs from './Components/AboutUs'
 import HighScore from './Components/HighScore'
 import Play from './Components/Play'
+import Host from './Components/Host'
+import Join from './Components/Join'
 import Calculation from './Components/Games/Calculation'
 import AscendingOrder from './Components/Games/AscendingOrder'
 import ColoredWords from './Components/Games/ColoredWords'
@@ -35,6 +37,8 @@ export default function App() {
         <Stack.Screen name="Symbols" component={Symbols} />
         <Stack.Screen name="Memory" component={Memory} />
         <Stack.Screen name="Balls" component={Balls} />
+        <Stack.Screen name="Host" component={Host} />
+        <Stack.Screen name="Join" component={Join} />
       </Stack.Navigator>
     }</NavigationContainer>
   );
