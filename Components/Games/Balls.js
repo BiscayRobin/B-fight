@@ -37,7 +37,6 @@ class Balls extends Game {
   youWon() {
     alert('Correct!');
     this.mounted=false;
-    this.init();
     this.addToScore(this.SCORE);
     this.next();
   }
@@ -45,7 +44,6 @@ class Balls extends Game {
   youLose() {
     alert('Wrong!');
     this.mounted=false;
-    this.init();
     this.loseLives();
     this.next();
   }
@@ -54,6 +52,7 @@ class Balls extends Game {
     this.balls.forEach((item, key) => {
       this.state[`position${key}`].stopAnimation();
     });
+    this.init();
   }
 
   componentDidMount() {
