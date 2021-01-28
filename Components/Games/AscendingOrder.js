@@ -54,8 +54,8 @@ class AscendingOrder extends Game {
 
   gameLost(){
     alert('Wrong!');
-    this.loseLives();
     this.init();
+    this.loseLives();
     this.next();
   }
 

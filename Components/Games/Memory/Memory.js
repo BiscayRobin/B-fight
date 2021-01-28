@@ -103,8 +103,8 @@ class Memory extends Game {
   // Function that is called when the game is lost
   gameLost(){
     alert('Wrong!');
-    this.loseLives();
     this.resetCards();
+    this.loseLives();
     this.next();
   }
 
