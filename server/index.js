@@ -19,7 +19,7 @@ const createRoom = () =>{
     const p2 = waiting_queue.shift();
     p1.join(`${p1.id}:${p2.id}`);
     p2.join(`${p1.id}:${p2.id}`);
-    io.to(p1.id).emit('begin');
+    io.to(`${p1.id}:${p2.id}`).emit('begin');
   }
 };
 
