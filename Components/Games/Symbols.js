@@ -31,16 +31,18 @@ class Symbols extends Game {
 
   gameLost(){
     alert('Wrong!');
-    this.init();
     this.loseLives();
     this.next();
   }
 
   gameWon(){
     alert('Correct!');
-    this.init();
     this.addToScore(this.SCORE);
     this.next();
+  }
+
+  componentWillUnmount() {
+    this.init();
   }
 
   // Generate the sequence

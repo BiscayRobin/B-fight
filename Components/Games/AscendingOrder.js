@@ -54,7 +54,6 @@ class AscendingOrder extends Game {
 
   gameLost(){
     alert('Wrong!');
-    this.init();
     this.loseLives();
     this.next();
   }
@@ -62,8 +61,11 @@ class AscendingOrder extends Game {
   gameWon(){
     alert('Correct!');
     this.addToScore(this.SCORE);
-    this.init();
     this.next();
+  }
+
+  componentWillUnmount() {
+    this.init();
   }
 
   getNumber() {
