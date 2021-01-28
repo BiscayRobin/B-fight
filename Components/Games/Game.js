@@ -17,12 +17,22 @@ class Game extends React.Component {
         global.score+=score;
     }
 
+    loseLives() {
+      global.lives--;
+      if (global.lives <= 0) {
+        alert("Sorry, you don't have any more health points!");
+        this.gameEnd();
+      }
+    }
+
     gameEnd(){
         //...
+        const { navigate } = this.props.navigation;
         if(global.multiplayer){
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
         }
+        navigate("Menu");
     }
 
 

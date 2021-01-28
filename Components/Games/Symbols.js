@@ -31,6 +31,7 @@ class Symbols extends Game {
 
   gameLost(){
     alert('Wrong!');
+    this.loseLives();
     this.init();
     this.next();
   }
@@ -42,7 +43,7 @@ class Symbols extends Game {
     this.next();
   }
 
-  // Generate the sequence 
+  // Generate the sequence
   generateSequence(){
     const l = Object.keys(images);
     for(let i=0;i<this.N;i++){

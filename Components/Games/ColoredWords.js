@@ -68,6 +68,7 @@ class ColoredWords extends Game {
     }
     else {
       this.message = messageLose[Math.floor(Math.random() * messageLose.length)];
+      this.loseLives();
     }
     if (this.round == 5) {
       this.finish();

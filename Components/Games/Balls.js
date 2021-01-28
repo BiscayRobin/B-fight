@@ -45,6 +45,7 @@ class Balls extends Game {
   youLose() {
     alert('Wrong!');
     this.mounted=false;
+    this.loseLives();
     this.init();
     this.next();
   }

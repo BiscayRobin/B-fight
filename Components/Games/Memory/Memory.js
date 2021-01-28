@@ -91,6 +91,7 @@ class Memory extends Game {
         <Text style={styles.text}> You have {this.MAX_FAIL} failures allowed. </Text>
         <Text style={styles.text}> Number of failures: {this.fail}. </Text>
         <Text style={styles.text}> {this.message} </Text>
+        <Text style={styles.text}> Number of health points: {this.lives}. </Text>
       </View>
       <View style={{flex:1, alignSelf:'center', height: hp('90%'),width:wp('90%')}}>
         {this.generateRows.call(this)}
@@ -102,6 +103,7 @@ class Memory extends Game {
   // Function that is called when the game is lost
   gameLost(){
     alert('Wrong!');
+    this.loseLives();
     this.resetCards();
     this.next();
   }

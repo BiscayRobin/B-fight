@@ -71,6 +71,7 @@ class Calculation extends Game {
     }
     else {
       this.message = messageLose[Math.floor(Math.random() * 5)];
+      this.loseLives();
     }
     if (this.round == 5) {
       this.finish();

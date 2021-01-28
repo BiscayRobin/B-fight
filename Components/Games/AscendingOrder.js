@@ -7,10 +7,10 @@ const Separator = () => (
 );
 
 class AscendingOrder extends Game {
-  
+
   constructor(props){
     super(props);
-    
+
     this.name="AscendingOrder";
     this.SCORE = 200;
     let N = 12;
@@ -54,6 +54,7 @@ class AscendingOrder extends Game {
 
   gameLost(){
     alert('Wrong!');
+    this.loseLives();
     this.init();
     this.next();
   }
