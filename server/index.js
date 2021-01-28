@@ -47,10 +47,10 @@ io.on('connection',socket => {
   });
   socket.on("disconnecting", reason => {
     console.log(`${socket.id} disconnect with reason ${reason}`);
-    const idx = waiting_queue.indexOf(socket.id);
+    const idx = waiting_queue.indexOf(socket);
     if(idx!=-1){
       console.log('slicing waiting player');
-      waiting_queue.slice(idx,1);
+      waiting_queue.splice(idx,1);
     }else if(socket.rooms.length==2){
       const it = socket.rooms.values();
       it.next();
