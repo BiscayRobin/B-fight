@@ -30,7 +30,7 @@ class Join extends React.Component {
         });
 
         global.ws.on("end", (msg)=>{
-            console.log("lala");
+            console.log("reception du end");
             const { navigate } = this.props.navigation;
             global.advScore=parseInt(msg);
             console.log(msg);

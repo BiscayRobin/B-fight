@@ -25,9 +25,13 @@ const createRoom = () =>{
 
 io.on('connection',socket => {
   socket.on('end',score => {
-    socket.to(socket.rooms[socket.rooms.size-1]).emit('end',score);
+    socket.to(socket.rooms[0]).to(socket.rooms[1]).emit('end',score);
+    console.log(socket.rooms[0]);
+    console.log(socket.rooms[1]);
+    console.log("envoie du end");
   });
   console.log('new player');
+  console.log(socket.id);
   waiting_queue.push(socket);
   createRoom();
 });
