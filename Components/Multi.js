@@ -15,8 +15,6 @@ class Multi extends React.Component {
           <Text style={styles.title}> Welcome to B-fight ! </Text>
         </View>
         <View style={styles.buttonWrapper}>
-          <Button type="solid" raised="true" color='#034f84' title="Host Game" onPress={() => navigate('Host')} />
-          <Separator />
           <Button type="solid" raised="true" color='#034f84' title="Join Game" onPress={() => navigate('Join')} />
         </View>
       </View>

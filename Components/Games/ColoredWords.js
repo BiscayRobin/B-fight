@@ -52,7 +52,6 @@ class ColoredWords extends Game {
 
   // Function that is called once the game is over
   finish = () => {
-    this.addToScore(this.SCORE);
     this.round=0;
     this.clear();
     this.next();
@@ -73,6 +72,7 @@ class ColoredWords extends Game {
     if (answer == this.word) {
       this.success = true;
       this.SCORE+=100;
+      this.addToScore(this.SCORE);
       this.message = messageWin[Math.floor(Math.random() * messageWin.length)];
     }
     else {
