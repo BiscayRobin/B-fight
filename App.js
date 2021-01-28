@@ -29,14 +29,14 @@ export default function App() {
         <Stack.Screen name="Multi" component={Multi} />
         <Stack.Screen name="Options" component={Options} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
-        <Stack.Screen name="Calculation" component={Calculation} />
-        <Stack.Screen name="AscendingOrder" component={AscendingOrder} />
-        <Stack.Screen name="ColoredWords" component={ColoredWords} />
+        <Stack.Screen name="Calculation" component={Calculation} options={{headerShown: false}} />
+        <Stack.Screen name="AscendingOrder" component={AscendingOrder} options={{headerShown: false}} />
+        <Stack.Screen name="ColoredWords" component={ColoredWords} options={{headerShown: false}} />
         <Stack.Screen name="HighScore" component={HighScore} />
-        <Stack.Screen name="Play" component={Play} />
-        <Stack.Screen name="Symbols" component={Symbols} />
-        <Stack.Screen name="Memory" component={Memory} />
-        <Stack.Screen name="Balls" component={Balls} />
+        <Stack.Screen name="Play" component={Play} options={{headerShown: false}} />
+        <Stack.Screen name="Symbols" component={Symbols} options={{headerShown: false}} />
+        <Stack.Screen name="Memory" component={Memory} options={{headerShown: false}} />
+        <Stack.Screen name="Balls" component={Balls} options={{headerShown: false}} />
         <Stack.Screen name="Host" component={Host} />
         <Stack.Screen name="Join" component={Join} />
       </Stack.Navigator>
