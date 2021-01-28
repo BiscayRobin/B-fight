@@ -31,7 +31,6 @@ class Game extends React.Component {
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
         }
-        global.score=0;
         global.lives=3;
         navigate("Menu");
     }

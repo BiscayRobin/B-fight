@@ -35,9 +35,6 @@ class Join extends React.Component {
             console.log(msg);
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
-            //global.ws.close('end');
-            //global.ws.connected=false;
-            //navigate("Menu");
         });
 
         global.ws.on("bye", ()=>{
@@ -45,7 +42,7 @@ class Join extends React.Component {
             console.log("reception du bye");
             global.ws.close('end');
             global.ws.connected=false;
-            navigate("Menu");
+            navigate("EndGame");
         });
 
         global.ws.on("disconnect", (reason)=>{
@@ -59,7 +56,7 @@ class Join extends React.Component {
             global.ws.close('end');
             global.ws.connected=false;
             global.connected=false;
-            navigate("Menu");
+            navigate("EndGame");
         });
     }
 
