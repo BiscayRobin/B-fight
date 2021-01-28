@@ -9,6 +9,7 @@ class Join extends React.Component {
 
     constructor(props) {
         super(props);
+
         global.multiplayer = true;
         global.isPlaying = false;
         global.connected = false;
@@ -29,12 +30,15 @@ class Join extends React.Component {
         });
 
         global.ws.on("end", (msg)=>{
+            console.log("lala");
+            const { navigate } = this.props.navigation;
             global.advScore=parseInt(msg);
             console.log(msg);
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
             global.ws.close('end');
             global.ws.connected=false;
+            navigate("Menu");
         });
 
         global.ws.on("disconnect", (reason)=>{
