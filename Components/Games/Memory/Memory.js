@@ -116,6 +116,11 @@ class Memory extends Game {
     this.next();
   }
 
+  // Function that is called when the page is unmount
+  componentWillUnmount() {
+    this.resetCards();
+  }
+
   // Function to reset the cards
   resetCards() {
     let cards = this.cards.map((card) => {

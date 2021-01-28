@@ -52,6 +52,20 @@ class Calculation extends Game {
     this.textInput.clear();
   }
 
+  // Function that is called when the page is unmount
+  componentWillUnmount() {
+    this.clear();
+    this.success = false;
+    this.correctAnswer = 0;
+    this.SCORE=0;
+    this.state = {
+      answer: ''
+    }
+    this.calcul = this.GenerateRandomCalcul();
+    this.message = '';
+    this.round = 0;
+  }
+
   // Function that is called once the game is over
   finish = () => {
     this.addToScore(this.SCORE);

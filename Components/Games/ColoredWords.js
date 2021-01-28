@@ -57,6 +57,20 @@ class ColoredWords extends Game {
     this.next();
   }
 
+  // Function that is called when the page is unmount
+  componentWillUnmount() {
+    this.finish();
+    this.success = false;
+    this.correctAnswer = 0;
+    this.SCORE=0;
+    this.state = {
+      answer: ''
+    }
+    this.calcul = this.GenerateRandomCalcul();
+    this.message = '';
+    this.round = 0;
+  }
+
   // Function that validates the user's response and decides whether it is correct or not.
   validate = (answer) => {
     const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
