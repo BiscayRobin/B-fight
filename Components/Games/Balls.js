@@ -50,6 +50,7 @@ class Balls extends Game {
   }
 
   componentWillUnmount() {
+    this.mounted=false;
     this.balls.forEach((item, key) => {
       this.state[`position${key}`].stopAnimation();
     });
