@@ -10,7 +10,7 @@ class AscendingOrder extends Game {
 
   constructor(props){
     super(props);
-
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name="AscendingOrder";
     this.SCORE = 200;
     let N = 12;

@@ -7,6 +7,7 @@ class Balls extends Game {
   // Constructor
   constructor(props) {
     super(props);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name = "Balls";
     this.SCORE = 500;
     this.N = 10;

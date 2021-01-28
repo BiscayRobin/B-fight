@@ -11,6 +11,7 @@ class ColoredWords extends Game {
   // Constructor
   constructor(props){
     super(props);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name="ColoredWords";
     this.success = false;
     this.SCORE=0;
@@ -59,16 +60,10 @@ class ColoredWords extends Game {
 
   // Function that is called when the page is unmount
   componentWillUnmount() {
-    this.finish();
-    this.success = false;
-    this.correctAnswer = 0;
+    this.clear();
+    this.message = "";
+    this.round=0;
     this.SCORE=0;
-    this.state = {
-      answer: ''
-    }
-    this.calcul = this.GenerateRandomCalcul();
-    this.message = '';
-    this.round = 0;
   }
 
   // Function that validates the user's response and decides whether it is correct or not.

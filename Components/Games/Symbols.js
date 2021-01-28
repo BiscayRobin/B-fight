@@ -10,6 +10,7 @@ class Symbols extends Game {
 
   constructor(props){
     super(props);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name="Symbols";
     this.SCORE = 500;
     this.N = 5;

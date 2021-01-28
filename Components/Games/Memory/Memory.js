@@ -8,6 +8,7 @@ class Memory extends Game {
   // Constructor
   constructor(props) {
     super(props);
+    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name = "Memory";
     this.SCORE = 0;
     this.MAX_FAIL = 20;
@@ -103,7 +104,6 @@ class Memory extends Game {
   // Function that is called when the game is lost
   gameLost(){
     alert('Wrong!');
-    this.resetCards();
     this.loseLives();
     this.next();
   }
