@@ -1,9 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Image } from 'react-native'
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { io } from 'socket.io-client';
-import {Game,gameList} from './Games/Game'
-
+import {Game,gameList} from './Games/Game';
+import { Wave } from 'react-native-animated-spinkit'
 
 class Join extends React.Component {
 
@@ -16,7 +16,7 @@ class Join extends React.Component {
         global.score = 0;
         global.advScore = 0;
         this.beginGame = this.beginGame.bind(this);
-
+        this.state = { visible: true };
         global.ws = io('ws://127.0.0.1:5000');
         global.ws.on("connect", ()=>{
             console.log('connected');
@@ -55,7 +55,7 @@ class Join extends React.Component {
 
         global.ws.on("error", (reason)=>{
             const { navigate } = this.props.navigation;
-            console.log(`opponent had error ${reason}`);
+            alert(`opponent had error ${reason}`);
             global.ws.close('end');
             global.ws.connected=false;
             global.connected=false;
@@ -74,7 +74,8 @@ class Join extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Waiting for an opponent</Text>
+                <Wave size={wp('15%')} color='#f7786b' ></Wave>
+                <Text style={styles.title}>Waiting for an opponent...</Text>
             </View>
         )
     }
@@ -83,7 +84,10 @@ class Join extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#92a8d1'
+        backgroundColor: '#92a8d1',
+        justifyContent:'center',
+        alignItems:'center',
+
     },
     titleWrapper: {
         height: hp('10%'), // 5% of height device screen
@@ -111,6 +115,10 @@ const styles = StyleSheet.create({
         height: hp('5%'),
         borderBottomWidth: StyleSheet.hairlineWidth,
     },
+    image: {
+        width: wp('10%'),
+        height: wp('10%')
+      }
 })
 
 export default Join
