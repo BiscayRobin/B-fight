@@ -109,6 +109,9 @@ class Symbols extends Game {
         <View style={styles.titleWrapper}>
           <Text style={styles.title}> Repeat the sequence in reverse order </Text>
         </View>
+        <View style={styles.textWrapper}>
+          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
+        </View>
         <View style={{flex:1, alignSelf:'center', height: hp('20%'),width:wp('90%'),flexDirection:'row',backgroundColor:'#034f84'}}>
           {this.generateRow(this.sequence)}
         </View>
@@ -162,6 +165,11 @@ const styles = StyleSheet.create({
   image: {
     width: wp('5%'),
     height: wp('5%')
+  },
+  text: {
+    textAlign: "center",
+    fontSize: hp('2%'),
+    color: '#c94c4c'
   }
 })
 

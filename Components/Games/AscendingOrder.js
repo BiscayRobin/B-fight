@@ -102,6 +102,9 @@ class AscendingOrder extends Game {
         <View style={styles.titleWrapper}>
           <Text style={styles.title}> Select the numbers in the correct order </Text>
         </View>
+        <View style={styles.textWrapper}>
+          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
+        </View>
         <View style={{flex:1, alignSelf:'center', height: hp('90%'),width:wp('90%')}}>
           {this.tab}
         </View>
@@ -141,6 +144,11 @@ const styles = StyleSheet.create({
     height: hp('5%'),
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
+  text: {
+    textAlign: "center",
+    fontSize: hp('2%'),
+    color: '#c94c4c'
+  }
 })
 
 export default AscendingOrder

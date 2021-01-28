@@ -5,12 +5,11 @@ class Game extends React.Component {
     constructor(props){
         super(props);
         if(global.score == undefined){
-            global.score=0;
+            global.score = 0;
         }
         if(global.lives == undefined){
-            global.lives=3;
+            global.lives = 3;
         }
-        console.log(global.score);
     }
 
     addToScore(score){
@@ -32,6 +31,8 @@ class Game extends React.Component {
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
         }
+        global.score=0;
+        global.lives=3;
         navigate("Menu");
     }
 

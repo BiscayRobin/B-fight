@@ -158,6 +158,9 @@ class Balls extends Game {
         <View style={styles.titleWrapper}>
           <Text style={styles.title}> Count the squares! </Text>
         </View>
+        <View style={styles.textWrapper}>
+          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
+        </View>
         <View style={{flex:1, overflow: 'hidden', backgroundColor: '#deeaee', width: wp('90%'), height: hp('60%'), alignSelf: 'center' }}>
           {
             this.balls.map(((ball, key) => {

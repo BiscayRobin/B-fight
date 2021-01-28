@@ -87,6 +87,9 @@ class ColoredWords extends Game {
           <Text style={styles.title}> Copy the word without being influenced by its color ! </Text>
         </View>
         <View style={styles.textWrapper}>
+          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
+        </View>
+        <View style={styles.textWrapper}>
           <Text style={{textAlign: "center", fontSize: hp('5%'), color: this.color}}>
             {this.word}
           </Text>
