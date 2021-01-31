@@ -17,6 +17,9 @@ class Symbols extends Game {
     this.selection = [];
     this.sequence=[];
     this.solution = [];
+    const l = Object.keys(images);
+    l.splice(l.indexOf('interrogation_point.png'),1);
+    this.imageList = l;
     this.generateSequence();
     console.log(this.sequence);
     console.log(this.solution);
@@ -48,7 +51,7 @@ class Symbols extends Game {
 
   // Generate the sequence
   generateSequence(){
-    const l = Object.keys(images);
+    const l = this.imageList;
     for(let i=0;i<this.N;i++){
       let ind = Math.floor(Math.random() * l.length);
       this.sequence.push(l[ind]);
@@ -122,7 +125,7 @@ class Symbols extends Game {
           {this.generateRow(this.selection)}
         </View>
         <View style={{flex:1, alignSelf:'center', height: hp('50%'),width:wp('90%'),flexDirection:'row'}}>
-          {this.generateClickableRow(Object.keys(images),this.AddToSelection)}
+          {this.generateClickableRow(this.imageList,this.AddToSelection)}
         </View>
       </View>
     )
