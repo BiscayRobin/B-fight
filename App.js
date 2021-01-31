@@ -15,6 +15,7 @@ import ColoredWords from './Components/Games/ColoredWords'
 import Symbols from './Components/Games/Symbols'
 import Balls from './Components/Games/Balls'
 import Memory from './Components/Games/Memory/Memory'
+import EndGame from './Components/EndGame'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -39,6 +40,7 @@ export default function App() {
         <Stack.Screen name="Balls" component={Balls} options={{headerShown: false}} />
         <Stack.Screen name="Host" component={Host} />
         <Stack.Screen name="Join" component={Join} />
+        <Stack.Screen name="EndGame" component={EndGame} />
       </Stack.Navigator>
     }</NavigationContainer>
   );
