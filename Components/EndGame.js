@@ -6,6 +6,7 @@ import ConfettiCannon from 'react-native-confetti-cannon';
 class EndGame extends React.Component {
   constructor(props) {
     super(props);
+    this.win = false;
   }
 
   whoWin() {
@@ -14,23 +15,35 @@ class EndGame extends React.Component {
     let message = "";
     if (global.score > global.advScore) {
       message = "Well done, you won !";
+      this.win = true;
     } else {
       message = "Sorry, you lost !"
+      this.win = false;
     }
     return message;
   }
 
   render() {
+    console.log(this.win);
+    let msg = this.whoWin();
+    let conf;
+    if (this.win) {
+      conf = <ConfettiCannon style={styles.confetti} count={200} autoStart={true} origin={{x: wp('50%'), y: hp('99%')}} />;
+    } else {
+      conf = <View></View>;
+    }
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>{this.whoWin()}</Text>
+          <Text style={styles.title}>{msg}</Text>
           <Text style={styles.title}>Your score is : {global.score}</Text>
           <Text style={styles.title}>The score of your opponent is : {global.advScore}</Text>
         </View>
-        <ConfettiCannon style={styles.confetti} count={200} autoStart={true} origin={{x: wp('50%'), y: hp('99%')}} />
+        <View style={styles.confetti}>
+        {conf}
+        </View>
       </View>
-    )
+    );
   }
 }
 
@@ -40,17 +53,18 @@ const styles = StyleSheet.create({
       backgroundColor: '#92a8d1'
     },
     confetti: {
-      flex: 1,
-      justifyContent: 'center',
       width: wp('50%')
     },
     titleWrapper: {
-      height: hp('10%'), // 5% of height device screen
-      width: wp('100%')   // 100% of width device screen
+      flex: 1,
+      height: hp('10%'),
+      width: wp('100%'),
+      alignItems:'center',
+      justifyContent:'center'
     },
     buttonWrapper: {
-      height: hp('30%'), // 5% of height device screen
-      width: wp('100%'),   // 100% of width device screen
+      height: hp('30%'),
+      width: wp('100%'),
       justifyContent: 'center',
       alignItems: 'center'
     },
