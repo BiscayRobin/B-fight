@@ -5,6 +5,8 @@ import { io } from 'socket.io-client';
 import {Game,gameList} from './Games/Game';
 import { Wave } from 'react-native-animated-spinkit'
 
+const IP = '127.0.0.1';
+
 class Join extends React.Component {
 
     constructor(props) {
@@ -17,7 +19,7 @@ class Join extends React.Component {
         global.advScore = 0;
         this.beginGame = this.beginGame.bind(this);
         this.state = { visible: true };
-        global.ws = io('ws://127.0.0.1:5000');
+        global.ws = io(`${IP}:5000`);
         global.ws.on("connect", ()=>{
             console.log('connected');
             global.connected=true;
