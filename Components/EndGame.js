@@ -13,6 +13,10 @@ class EndGame extends React.Component {
     console.log(global.score);
     console.log(global.advScore);
     let message = "";
+    if(global.multiplayer==false){
+      this.win=true;
+      return 'Well done!';
+    }
     if (global.score > global.advScore) {
       message = "Well done, you won !";
       this.win = true;
@@ -32,12 +36,18 @@ class EndGame extends React.Component {
     } else {
       conf = <View></View>;
     }
+    let adv;
+    if(this.multiplayer){
+      adv=<Text style={styles.title}>The score of your opponent is : {global.advScore}</Text>;
+    }else{
+      adv=<View></View>;
+    }
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
           <Text style={styles.title}>{msg}</Text>
           <Text style={styles.title}>Your score is : {global.score}</Text>
-          <Text style={styles.title}>The score of your opponent is : {global.advScore}</Text>
+          {adv}
         </View>
         <View style={styles.confetti}>
         {conf}
@@ -50,7 +60,8 @@ class EndGame extends React.Component {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#92a8d1'
+      backgroundColor: '#92a8d1',
+      overflow: 'hidden'
     },
     confetti: {
       width: wp('50%')
