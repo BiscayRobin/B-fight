@@ -19,8 +19,6 @@ class Menu extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title=" Multi Player " onPress={() => navigate('Multi')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title="      Options      " onPress={() => navigate('Options')}/>
-          <Separator />
           <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
         </View>
         <Separator />
