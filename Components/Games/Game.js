@@ -32,7 +32,7 @@ class Game extends React.Component {
             global.isPlaying=false;
         }
         global.lives=3;
-        navigate("Menu");
+        navigate("EndGame");
     }
 
 

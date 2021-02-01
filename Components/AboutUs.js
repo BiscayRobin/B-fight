@@ -48,12 +48,6 @@ const styles = StyleSheet.create({
     height: hp('10%'), // 5% of height device screen
     width: wp('100%')   // 100% of width device screen
   },
-  buttonWrapper: {
-    height: hp('30%'), // 5% of height device screen
-    width: wp('100%'),   // 100% of width device screen
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   textWrapper: {
     height: hp('10%'), // 5% of height device screen
     width: wp('100%')   // 100% of width device screen
@@ -62,13 +56,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: hp('5%'),
     color: '#f7786b'
-  },
-  version: {
-    textAlign: "center"
-  },
-  separator: {
-    height: hp('5%'),
-    borderBottomWidth: StyleSheet.hairlineWidth,
   },
   text: {
     textAlign: "center",
