@@ -38,7 +38,7 @@ export default function App() {
         <Stack.Screen name="Balls" component={Balls} options={{headerShown: false}} />
         <Stack.Screen name="Host" component={Host} />
         <Stack.Screen name="Join" component={Join} />
-        <Stack.Screen name="EndGame" component={EndGame} />
+        <Stack.Screen name="EndGame" component={EndGame} options={{headerShown: false}} />
       </Stack.Navigator>
     }</NavigationContainer>
   );
