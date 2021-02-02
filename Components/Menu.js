@@ -1,8 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, Button, Text } from 'react-native'
+import { StyleSheet, View, Button, Text, TouchableOpacity } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { Audio } from 'expo-av';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Separator = () => (
   <View style={styles.separator} />
@@ -27,7 +26,7 @@ class Menu extends React.Component {
     return txt;
   }
 
-  switchChar(){
+  switchChar= () =>{
     this.mute=!this.mute;
     this.forceUpdate();
     console.log('change');
@@ -57,7 +56,7 @@ class Menu extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
           <Separator />
-          <TouchableOpacity onPress={() => onpress}>
+          <TouchableOpacity onPress={this.switchChar}>
             {this.showAudio()}
           </TouchableOpacity>
         </View>
