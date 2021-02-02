@@ -30,6 +30,7 @@ class Menu extends React.Component {
     this.mute=!this.mute;
     this.forceUpdate();
     console.log('change');
+    global.soundPlayer.setIsMutedAsync(this.mute);
   }
 
   async addMusic(){
