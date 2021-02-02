@@ -57,7 +57,7 @@ class Menu extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
           <Separator />
-          <TouchableOpacity onPress={() => onpress()}>
+          <TouchableOpacity onPress={() => onpress}>
             {this.showAudio()}
           </TouchableOpacity>
         </View>
