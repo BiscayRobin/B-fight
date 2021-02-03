@@ -25,6 +25,7 @@ class Balls extends Game {
   }
 
   init(){
+    console.log('init');
     this.ballCount = {};
     for (let key in this.colors) {
       this.ballCount[this.colors[key]] = 0;
@@ -45,8 +46,19 @@ class Balls extends Game {
   youLose() {
     alert('Wrong!');
     this.mounted=false;
-    this.loseLives();
-    this.next();
+    if(this.loseLives()){
+      this.next();
+    }
+  }
+
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {      
+      this.mounted=true;
+      this.init();
+      this.setupBalls();
+      this.forceUpdate();
+    });
   }
 
   componentWillUnmount() {
@@ -55,11 +67,6 @@ class Balls extends Game {
       this.state[`position${key}`].stopAnimation();
     });
     this.init();
-  }
-
-  componentDidMount() {
-    this.mounted=true;
-    this.setupBalls();
   }
 
   setupBalls() {

@@ -10,7 +10,6 @@ class Symbols extends Game {
 
   constructor(props){
     super(props);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name="Symbols";
     this.SCORE = 500;
     this.N = 5;
@@ -35,8 +34,9 @@ class Symbols extends Game {
 
   gameLost(){
     alert('Wrong!');
-    this.loseLives();
-    this.next();
+    if(this.loseLives()){
+      this.next();
+    }
   }
 
   gameWon(){
@@ -45,8 +45,12 @@ class Symbols extends Game {
     this.next();
   }
 
-  componentWillUnmount() {
-    this.init();
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {      
+      this.init();
+      this.forceUpdate();
+    });
   }
 
   // Generate the sequence

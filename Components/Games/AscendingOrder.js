@@ -10,7 +10,6 @@ class AscendingOrder extends Game {
 
   constructor(props){
     super(props);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
     this.name="AscendingOrder";
     this.SCORE = 200;
     let N = 12;
@@ -33,6 +32,7 @@ class AscendingOrder extends Game {
 }
 
   init(){
+    console.log('init');
     let N = 12;
     let ROWS = 3;
     let COL = N/ROWS;
@@ -54,8 +54,9 @@ class AscendingOrder extends Game {
 
   gameLost(){
     alert('Wrong!');
-    this.loseLives();
-    this.next();
+    if(this.loseLives()){
+      this.next();
+    }
   }
 
   gameWon(){
@@ -64,8 +65,12 @@ class AscendingOrder extends Game {
     this.next();
   }
 
-  componentWillUnmount() {
-    this.init();
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {      
+      this.init();
+      this.forceUpdate();
+    });
   }
 
   getNumber() {
