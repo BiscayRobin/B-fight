@@ -8,7 +8,7 @@ class Memory extends Game {
   // Constructor
   constructor(props) {
     super(props);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
     this.name = "Memory";
     this.SCORE = 0;
     this.MAX_FAIL = 20;
@@ -115,7 +115,7 @@ class Memory extends Game {
     this.resetCards();
     this.next();
   }
-  
+
   // Function that is called when the page is unmount
   componentDidMount(){
     const { navigation } = this.props;
