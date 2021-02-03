@@ -104,8 +104,9 @@ class Memory extends Game {
   // Function that is called when the game is lost
   gameLost(){
     alert('Wrong!');
-    this.loseLives();
-    this.next();
+    if (this.loseLives()) {
+      this.next();
+    }
   }
 
   // Function that is called when the game is won
@@ -113,7 +114,9 @@ class Memory extends Game {
     alert('Correct!');
     this.addToScore(this.SCORE);
     this.resetCards();
-    this.next();
+    if (this.loseLives()) {
+      this.next();
+    }
   }
 
   // Function that is called when the page is unmount

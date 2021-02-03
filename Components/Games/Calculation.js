@@ -58,7 +58,6 @@ class Calculation extends Game {
     const { navigation } = this.props;
     this.focusListener = navigation.addListener("focus", () => {
       this.clear();
-      this.correctAnswer = 0;
       this.SCORE=0;
       this.message = '';
       this.round = 0;
@@ -67,15 +66,18 @@ class Calculation extends Game {
   }
 
   // Function that is called once the game is over
-  finish = () => {
+  finish = (noMoreLives) => {
     this.addToScore(this.SCORE);
     this.round=0;
     this.clear();
-    this.next();
+    if (noMoreLives != false) {
+      this.next();
+    }
   }
 
   // Function that validates the user's response and decides whether it is correct or not.
   validate = (answer) => {
+    let noMoreLives = true;
     const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
     const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
     if (answer == this.correctAnswer) {
@@ -85,10 +87,10 @@ class Calculation extends Game {
     }
     else {
       this.message = messageLose[Math.floor(Math.random() * 5)];
-      this.loseLives();
+      noMoreLives = this.loseLives();
     }
-    if (this.round == 5) {
-      this.finish();
+    if (this.round == 5 || noMoreLives == false) {
+      this.finish(noMoreLives);
     } else {
       this.clear();
       this.round += 1;

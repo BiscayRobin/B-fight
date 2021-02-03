@@ -51,10 +51,12 @@ class ColoredWords extends Game {
   }
 
   // Function that is called once the game is over
-  finish = () => {
+  finish = (noMoreLives) => {
     this.round=0;
     this.clear();
-    this.next();
+    if (noMoreLives != false) {
+      this.next();
+    }
   }
 
   // Function that is called when the page is unmount
@@ -73,18 +75,18 @@ class ColoredWords extends Game {
   validate = (answer) => {
     const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
     const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
+    let noMoreLives = true;
     if (answer == this.word) {
       this.success = true;
       this.SCORE+=100;
       this.addToScore(this.SCORE);
       this.message = messageWin[Math.floor(Math.random() * messageWin.length)];
-    }
-    else {
+    } else {
       this.message = messageLose[Math.floor(Math.random() * messageLose.length)];
-      this.loseLives();
+      noMoreLives = this.loseLives();
     }
-    if (this.round == 5) {
-      this.finish();
+    if (this.round == 5 || noMoreLives == false) {
+      this.finish(noMoreLives);
     } else {
       this.clear();
       this.round += 1;
