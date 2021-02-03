@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: hp('5%'),
+    fontSize: wp('5%'),
     color: '#f7786b'
   },
   version: {
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: hp('2%'),
+    fontSize: wp('2%'),
     color: '#c94c4c'
   }
 })
