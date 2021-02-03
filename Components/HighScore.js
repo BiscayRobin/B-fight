@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: hp('5%'),
+    fontSize: hp('8%'),
     color: '#f7786b'
   },
   text: {
     textAlign: "center",
-    fontSize: hp('2%'),
+    fontSize: hp('5%'),
     color: '#eea29a'
   },
 })
