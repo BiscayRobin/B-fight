@@ -11,7 +11,7 @@ class Calculation extends Game {
   // Constructor
   constructor(props){
     super(props);
-    this.componentWillUnmount = this.componentWillUnmount.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
     this.name="Calculation";
     this.success = false;
     this.correctAnswer = 0;
@@ -54,12 +54,16 @@ class Calculation extends Game {
   }
 
   // Function that is called when the page is unmount
-  componentWillUnmount() {
-    this.clear();
-    this.correctAnswer = 0;
-    this.SCORE=0;
-    this.message = '';
-    this.round = 0;
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {
+      this.clear();
+      this.correctAnswer = 0;
+      this.SCORE=0;
+      this.message = '';
+      this.round = 0;
+      this.forceUpdate();
+    });
   }
 
   // Function that is called once the game is over
