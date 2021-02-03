@@ -17,12 +17,14 @@ class Game extends React.Component {
     }
 
     loseLives() {
-      global.lives--;
-      if (global.lives <= 0) {
-        alert("Sorry, you don't have any more health points!");
-        this.gameEnd();
+        global.lives--;
+        if (global.lives <= 0) {
+          alert("Sorry, you don't have any more health points!");
+          this.gameEnd();
+          return false;
+        }
+        return true;
       }
-    }
 
     gameEnd(){
         //...
