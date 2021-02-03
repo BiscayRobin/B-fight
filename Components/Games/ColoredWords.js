@@ -27,10 +27,10 @@ class ColoredWords extends Game {
 
   // Function to generate a random color and word
   GenerateRandomWord = () => {
-    const words = ["blue", "red", "purple", "pink", "yellow", "green", "black", "white", "brown", "orange", "grey"];
-    let colors = [...words]
+    const words = ["blue", "red", "purple", "pink", "yellow", "green", "white", "orange"];
+    let colors = ["#00F6DE", "#F10C1A", "#C500ED", "#ff69b4", "#F4FF00", "#66FF00", "#FFFFFF", "#FF9933"];
     this.word = words[Math.floor(Math.random() * words.length)];
-    let ind = colors.indexOf(this.word);
+    let ind = words.indexOf(this.word);
     colors.splice(ind,1);
     this.color = colors[Math.floor(Math.random() * colors.length)];
   }
