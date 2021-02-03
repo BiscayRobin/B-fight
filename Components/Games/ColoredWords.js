@@ -136,17 +136,17 @@ const styles = StyleSheet.create({
     backgroundColor: '#92a8d1'
   },
   titleWrapper: {
-    height: hp('10%'),
+    height: hp('5%'),
     width: wp('100%')
   },
   buttonWrapper: {
-    height: hp('30%'),
+    height: hp('20%'),
     width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
   textWrapper: {
-    height: hp('10%'),
+    height: hp('2%'),
     width: wp('100%')
   },
   title: {
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     color: '#c94c4c'
   },
   separator: {
-    height: hp('5%'),
+    height: hp('2%'),
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
 })

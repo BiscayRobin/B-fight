@@ -29,7 +29,6 @@ class Menu extends React.Component {
   switchChar= () =>{
     this.mute=!this.mute;
     this.forceUpdate();
-    console.log('change');
     global.soundPlayer.setIsMutedAsync(this.mute);
   }
 

@@ -12,7 +12,7 @@ class EndGame extends React.Component {
 
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       this.updateScores();
     });
   }
@@ -25,7 +25,6 @@ class EndGame extends React.Component {
         score.sort((a, b) => b - a);
       } else { //more than ten entries: sorts the scores than pops the last one
         if(score.indexOf(global.score) == -1){ // entry not inside the array
-          console.log(score);
           score.push(global.score);
           score.sort((a, b) => b - a);
           score.pop();
@@ -38,7 +37,7 @@ class EndGame extends React.Component {
       score=null;
     }
     if(score!=null){
-      this.storeData(score); // don't need to await the end 
+      this.storeData(score); // don't need to await the end
     }
   }
 
@@ -53,7 +52,6 @@ class EndGame extends React.Component {
   async storeData(score){
     try {
       const jsonValue = JSON.stringify(score);
-      console.log(`Storing data: ${jsonValue}`);
       await AsyncStorage.setItem('bfightScore', jsonValue);
     } catch (e) {
       alert(`Error while storing data: ${e}`);
@@ -72,8 +70,6 @@ class EndGame extends React.Component {
   }
 
   whoWin() {
-    console.log(global.score);
-    console.log(global.advScore);
     let message = "";
     if(global.multiplayer==false){
       this.win=true;
@@ -90,7 +86,6 @@ class EndGame extends React.Component {
   }
 
   render() {
-    console.log(this.win);
     let msg = this.whoWin();
     let conf;
     if (this.win) {

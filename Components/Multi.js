@@ -9,11 +9,10 @@ const Separator = () => (
 class Multi extends React.Component {
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       if(global.connected){
         global.ws.close('back to menu');
         global.ws.connected=false;
-        console.log('connection closed: back to menu');
       }
     });
   }

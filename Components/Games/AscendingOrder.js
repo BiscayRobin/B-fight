@@ -32,7 +32,6 @@ class AscendingOrder extends Game {
 }
 
   init(){
-    console.log('init');
     let N = 12;
     let ROWS = 3;
     let COL = N/ROWS;
@@ -52,22 +51,20 @@ class AscendingOrder extends Game {
     }
   }
 
-  gameLost(){
-    alert('Wrong!');
+  gameLost() {
     if(this.loseLives()){
       this.next();
     }
   }
 
   gameWon(){
-    alert('Correct!');
     this.addToScore(this.SCORE);
     this.next();
   }
 
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       this.init();
       this.forceUpdate();
     });

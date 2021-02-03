@@ -21,34 +21,28 @@ class Join extends React.Component {
         this.state = { visible: true };
         global.ws = io(`${IP}:5000`);
         global.ws.on("connect", ()=>{
-            console.log('connected');
             global.connected=true;
         });
 
         global.ws.on("begin", ()=>{
             global.isPlaying=true;
-            console.log('begin');
             this.beginGame();
         });
 
         global.ws.on("end", (msg)=>{
-            console.log("reception du end");
             global.advScore=parseInt(msg);
-            console.log(msg);
             global.ws.emit('end',`${global.score}`);
             global.isPlaying=false;
         });
 
         global.ws.on("bye", ()=>{
             const { navigate } = this.props.navigation;
-            console.log("reception du bye");
             global.ws.close('end');
             global.ws.connected=false;
             navigate("EndGame");
         });
 
         global.ws.on("disconnect", (reason)=>{
-            console.log(reason);
             global.connected=false;
         });
 

@@ -25,7 +25,6 @@ class Balls extends Game {
   }
 
   init(){
-    console.log('init');
     this.ballCount = {};
     for (let key in this.colors) {
       this.ballCount[this.colors[key]] = 0;
@@ -37,14 +36,12 @@ class Balls extends Game {
   }
 
   youWon() {
-    alert('Correct!');
     this.mounted=false;
     this.addToScore(this.SCORE);
     this.next();
   }
 
   youLose() {
-    alert('Wrong!');
     this.mounted=false;
     if(this.loseLives()){
       this.next();
@@ -53,7 +50,7 @@ class Balls extends Game {
 
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       this.mounted=true;
       this.init();
       this.setupBalls();

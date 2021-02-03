@@ -20,8 +20,6 @@ class Symbols extends Game {
     l.splice(l.indexOf('interrogation_point.png'),1);
     this.imageList = l;
     this.generateSequence();
-    console.log(this.sequence);
-    console.log(this.solution);
     this.AddToSelection = this.AddToSelection.bind(this);
 }
 
@@ -33,21 +31,19 @@ class Symbols extends Game {
   }
 
   gameLost(){
-    alert('Wrong!');
     if(this.loseLives()){
       this.next();
     }
   }
 
   gameWon(){
-    alert('Correct!');
     this.addToScore(this.SCORE);
     this.next();
   }
 
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       this.init();
       this.forceUpdate();
     });
@@ -66,7 +62,6 @@ class Symbols extends Game {
 
   generateRow(list){
     let items = [];
-    console.log(list);
     for(let img in list){
       img=list[img];
       items.push(
@@ -173,8 +168,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   image: {
-    width: wp('5%'),
-    height: wp('5%')
+    width: wp('10%'),
+    height: wp('10%')
   },
   text: {
     textAlign: "center",

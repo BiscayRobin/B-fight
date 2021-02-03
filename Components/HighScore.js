@@ -11,14 +11,14 @@ class HighScore extends React.Component {
 
   componentDidMount(){
     const { navigation } = this.props;
-    this.focusListener = navigation.addListener("focus", () => {      
+    this.focusListener = navigation.addListener("focus", () => {
       this.updateScores();
     });
   }
 
   async updateScores() {
     this.score = await this.getData();
-    
+
     this.forceUpdate();
   }
 
@@ -33,7 +33,6 @@ class HighScore extends React.Component {
   async storeData(score){
     try {
       const jsonValue = JSON.stringify(score);
-      console.log(`Storing data: ${jsonValue}`);
       await AsyncStorage.setItem('bfightScore', jsonValue);
     } catch (e) {
       alert(`Error while storing data: ${e}`);
@@ -50,7 +49,7 @@ class HighScore extends React.Component {
       return null;
     }
   }
-  
+
   render() {
     let items = [];
     for(let score in this.score){

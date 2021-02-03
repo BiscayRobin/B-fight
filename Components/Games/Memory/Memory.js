@@ -94,7 +94,7 @@ class Memory extends Game {
         <Text style={styles.text}> {this.message} </Text>
         <Text style={styles.text}> Number of health points: {global.lives}. </Text>
       </View>
-      <View style={{flex:1, alignSelf:'center', height: hp('90%'),width:wp('90%')}}>
+      <View style={{flex:1, alignSelf:'center', height: hp('50%'),width:wp('90%')}}>
         {this.generateRows.call(this)}
       </View>
       </View>
@@ -103,7 +103,6 @@ class Memory extends Game {
 
   // Function that is called when the game is lost
   gameLost(){
-    alert('Wrong!');
     if (this.loseLives()) {
       this.next();
     }
@@ -111,7 +110,6 @@ class Memory extends Game {
 
   // Function that is called when the game is won
   gameWon(){
-    alert('Correct!');
     this.addToScore(this.SCORE);
     this.resetCards();
     if (this.loseLives()) {
@@ -250,8 +248,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#92a8d1'
   },
   titleWrapper: {
-    height: hp('10%'),
-    width: wp('100%')
+    height: hp('5%'),
+    width: wp('100%'),
+    marginHorizontal: hp('1%')
   },
   title: {
     textAlign: "center",
@@ -259,7 +258,7 @@ const styles = StyleSheet.create({
     color: '#f7786b'
   },
   textWrapper: {
-    height: hp('10%'),
+    height: hp('2%'),
     width: wp('100%')
   },
   text: {

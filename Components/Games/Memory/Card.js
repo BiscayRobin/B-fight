@@ -32,7 +32,7 @@ export default class Card extends React.Component {
 
 const styles = StyleSheet.create({
 	image: {
-    width: wp('5%'),
-    height: wp('5%')
+    width: wp('10%'),
+    height: wp('10%')
   }
 });
