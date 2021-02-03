@@ -115,10 +115,14 @@ class Memory extends Game {
     this.resetCards();
     this.next();
   }
-
+  
   // Function that is called when the page is unmount
-  componentWillUnmount() {
-    this.resetCards();
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {
+      this.resetCards();
+      this.forceUpdate();
+    });
   }
 
   // Function to reset the cards

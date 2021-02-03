@@ -58,11 +58,15 @@ class ColoredWords extends Game {
   }
 
   // Function that is called when the page is unmount
-  componentWillUnmount() {
-    this.clear();
-    this.message = "";
-    this.round=0;
-    this.SCORE=0;
+  componentDidMount(){
+    const { navigation } = this.props;
+    this.focusListener = navigation.addListener("focus", () => {
+      this.clear();
+      this.message = "";
+      this.round=0;
+      this.SCORE=0;
+      this.forceUpdate();
+    });
   }
 
   // Function that validates the user's response and decides whether it is correct or not.
