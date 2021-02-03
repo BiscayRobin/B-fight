@@ -27,7 +27,7 @@ class ColoredWords extends Game {
 
   // Function to generate a random color and word
   GenerateRandomWord = () => {
-    const words = ["blue", "red", "purple", "pink", "yellow", "green", "white", "orange"];
+    const words = ["Blue", "Red", "Purple", "Pink", "Yellow", "Green", "White", "Orange"];
     let colors = ["#00F6DE", "#F10C1A", "#C500ED", "#ff69b4", "#F4FF00", "#66FF00", "#FFFFFF", "#FF9933"];
     this.word = words[Math.floor(Math.random() * words.length)];
     let ind = words.indexOf(this.word);
@@ -76,7 +76,7 @@ class ColoredWords extends Game {
     const messageWin = ["Well done !", "Awesome !", "Great !", "Perfectenschlag !", "Splendid !"];
     const messageLose = ["Lost !", "Too bad !", "Almost !", "You can do better !", "Missed !"];
     let noMoreLives = true;
-    if (answer == this.word) {
+    if (answer.toLowerCase() == this.word.toLowerCase()) {
       this.success = true;
       this.SCORE+=100;
       this.addToScore(this.SCORE);
