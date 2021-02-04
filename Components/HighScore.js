@@ -52,8 +52,10 @@ class HighScore extends React.Component {
 
   render() {
     let items = [];
+    let i = 0;
     for(let score in this.score){
-      items.push(<Text style={styles.text}>{this.score[score]}</Text>);
+      items.push(<Text key={i} style={styles.text}>{this.score[score]}</Text>);
+      i++;
     }
     if(this.score==null){
       items=<Text style={styles.text}>No stored scores were found</Text>
