@@ -85,15 +85,11 @@ class Memory extends Game {
   render() {
     return (
       <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Find the cards that are the same !</Text>
-      </View>
-      <View style={styles.textWrapper}>
-        <Text style={styles.text}> You have {this.MAX_FAIL} failures allowed. </Text>
-        <Text style={styles.text}> Number of failures: {this.fail}. </Text>
-        <Text style={styles.text}> {this.message} </Text>
-        <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-      </View>
+      <Text style={styles.title}>Find the cards that are the same !</Text>
+      <Text style={styles.text}> You have {this.MAX_FAIL} failures allowed. </Text>
+      <Text style={styles.text}> Number of failures: {this.fail}. </Text>
+      <Text style={styles.text}> {this.message} </Text>
+      <Text style={styles.text}> Number of health points: {global.lives}. </Text>
       <View style={{flex:1, alignSelf:'center', height: hp('50%'),width:wp('90%')}}>
         {this.generateRows.call(this)}
       </View>
@@ -247,23 +243,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('5%'),
+  buttonWrapper: {
+    height: hp('20%'),
     width: wp('100%'),
-    marginHorizontal: hp('1%')
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
+    marginVertical:hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
   },
-  textWrapper: {
-    height: hp('2%'),
-    width: wp('100%')
-  },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
+    fontSize: wp('4%'),
     color: '#c94c4c'
   }
 })
