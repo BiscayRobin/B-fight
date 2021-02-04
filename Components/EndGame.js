@@ -102,11 +102,9 @@ class EndGame extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
           <Text style={styles.title}>{msg}</Text>
           <Text style={styles.title}>Your score is : {global.score}</Text>
           {adv}
-        </View>
         <View style={styles.buttonWrapper}>
           <Button type="solid" raised="true" color='#034f84' title=" Menu " onPress={() => navigate('Menu')} />
         </View>
@@ -126,13 +124,6 @@ const styles = StyleSheet.create({
     },
     confetti: {
       width: wp('50%')
-    },
-    titleWrapper: {
-      flex: 1,
-      height: hp('10%'),
-      width: wp('100%'),
-      alignItems:'center',
-      justifyContent:'center'
     },
     buttonWrapper: {
       height: hp('30%'),
