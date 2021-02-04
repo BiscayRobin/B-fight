@@ -174,15 +174,15 @@ class Balls extends Game {
             }))
           }
         </View>
-        <View style={{ backgroundColor: '#b1cbbb', width: wp('90%'), height: hp('24%'), alignSelf: 'center' }}>
+        <View style={{ backgroundColor: '#b1cbbb', width: wp('90%'), height: hp('25%'), alignSelf: 'center' }}>
           <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'center', flexDirection: 'column' }}>
-            <TextInput style={[styles.text, { marginBottom: '1%' }]} autoCorrect={false}
+            <TextInput style={[styles.text, { marginBottom: '1%', marginTop: hp('13%') }]} autoCorrect={false}
               ref={input => { this.textInput = input }}
               underlineColorAndroid="transparent"
               placeholder="Answer"
               onChangeText={this.handleAnswer} />
-            <View style={{justifyContent:'center',height:wp('5%'),alignItems: 'center'}}>
-              <View style={[styles.ball, { backgroundColor: this.chosenColor, width: wp('5%'), height: wp('5%'), justifyContent:'center'}]}></View>
+            <View style={{justifyContent:'center',height:wp('4%'),alignItems: 'center'}}>
+              <View style={[styles.ball, { backgroundColor: this.chosenColor, width: wp('4%'), height: wp('4%'), justifyContent:'center'}]}></View>
             </View>
             <View style={styles.buttonWrapper}>
               <Button
@@ -203,8 +203,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#92a8d1'
   },
   buttonWrapper: {
-    height: hp('30%'),
     width: wp('100%'),
+    marginTop: hp('1%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
