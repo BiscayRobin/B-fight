@@ -55,6 +55,7 @@ class Balls extends Game {
       this.init();
       this.setupBalls();
       this.forceUpdate();
+      this.textInput.clear();
     });
   }
 
