@@ -62,13 +62,15 @@ class Symbols extends Game {
 
   generateRow(list){
     let items = [];
+    let i = 0;
     for(let img in list){
       img=list[img];
       items.push(
-        <View style={{backgroundColor:'#034f84' , flex:1,justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
-          <Image style={styles.image} source={images[img]}/>
+        <View key={i} style={{backgroundColor:'#034f84' , flex:1,justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
+          <Image style={styles.image} source={images[img]} key={i}/>
         </View>
       );
+      i++;
     }
     return items;
   }
@@ -78,8 +80,8 @@ class Symbols extends Game {
     for(let i=0;i<list.length;i++){
       const img = list[i];
       items.push(
-        <TouchableOpacity onPress={() => onpress(img)} style={{backgroundColor:'#034f84' , flex:1,justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
-          <Image style={styles.image} source={images[img]}/>
+        <TouchableOpacity onPress={() => onpress(img)} style={{backgroundColor:'#034f84' , flex:1,justifyContent:'center',alignItems:'center',alignSelf:'center'}} key={i}>
+          <Image style={styles.image} source={images[img]} key={i}/>
         </TouchableOpacity>
       );
     }

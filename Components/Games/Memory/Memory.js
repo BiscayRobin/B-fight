@@ -160,9 +160,9 @@ class Memory extends Game {
   // Function that generates lines
   generateRows() {
     let rows = this.getRowCards(this.state.cards);
-    return rows.map((cards) => {
+    return rows.map((cards, index) => {
       return (
-        <View style={{ flex: 1, alignSelf: 'center', flexDirection: 'row'}}>
+        <View style={{ flex: 1, alignSelf: 'center', flexDirection: 'row'}} key={index}>
           {this.generateCards(cards)}
         </View>
       );
