@@ -134,6 +134,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
+    marginVertical:hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'

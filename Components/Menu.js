@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     width: wp('100%')   // 100% of width device screen
   },
   title: {
-    paddingVertical: hp('1%'),
+    marginVertical: hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
