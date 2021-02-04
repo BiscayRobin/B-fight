@@ -111,12 +111,8 @@ class Symbols extends Game {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Repeat the sequence in reverse order </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-        </View>
+        <Text style={styles.title}> Repeat the sequence in reverse order </Text>
+        <Text style={styles.text}> Number of health points: {global.lives}. </Text>
         <View style={{flex:1, alignSelf:'center', height: hp('20%'),width:wp('90%'),flexDirection:'row',backgroundColor:'#034f84'}}>
           {this.generateRow(this.sequence)}
         </View>
@@ -136,27 +132,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
-  },
   buttonWrapper: {
-    height: hp('30%'), // 5% of height device screen
-    width: wp('100%'),   // 100% of width device screen
+    height: hp('30%'),
+    width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
-  textWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
-  },
   title: {
+    marginVertical:hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
-  },
-  version: {
-    textAlign: "center"
   },
   symbol: {
     width: wp('5%'),
