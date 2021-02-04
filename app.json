@@ -8,8 +8,15 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "icon": "./Components/Games/images/mental-health.png",
+    "android": {
+      "package": "com.bfight.bfight",
+      "versionCode": 1
+    },
     "ios": {
-      "bundleIdentifier": "test"
+      "buildNumber": "1.0.0",
+      "icon": "./Components/Games/images/ios_icon.png",
+      "bundleIdentifier": "com.bfight.bfight"
     }
   }
 }

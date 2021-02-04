@@ -119,13 +119,13 @@ class ColoredWords extends Game {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#92a8d1'
+    backgroundColor: '#92a8d1',
+    alignContent:'space-between'
   },
   buttonWrapper: {
     height: hp('20%'),
     width: wp('100%'),
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'center'
   },
   title: {
     marginVertical:hp('2%'),
