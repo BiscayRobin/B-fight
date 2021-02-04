@@ -1,4 +1,4 @@
-package com.bfight;
+package com.bfight.bfight;
 
 import android.os.Bundle;
 

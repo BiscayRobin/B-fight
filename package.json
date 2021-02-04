@@ -45,5 +45,7 @@
   "jest": {
     "preset": "react-native"
   },
-  "private": true
+  "private": true,
+  "name": "B-fight",
+  "version": "1.0.0"
 }
