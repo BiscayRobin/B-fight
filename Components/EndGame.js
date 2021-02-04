@@ -102,7 +102,7 @@ class EndGame extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-          <Text style={styles.title}>{msg}</Text>
+          <Text style={[styles.title,{marginTop: hp('20%')}]}>{msg}</Text>
           <Text style={styles.title}>Your score is : {global.score}</Text>
           {adv}
         <View style={styles.buttonWrapper}>
@@ -128,10 +128,9 @@ const styles = StyleSheet.create({
       flex: 1
     },
     buttonWrapper: {
-      alignItems: 'center'
+      alignItems: 'center',
     },
     title: {
-      marginVertical: hp('2%'),
       textAlign: "center",
       fontSize: wp('5%'),
       color: '#f7786b'
@@ -144,6 +143,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: StyleSheet.hairlineWidth,
     },
     text: {
+      flex:1,
       textAlign: "center",
       fontSize: wp('2%'),
       color: '#c94c4c'
