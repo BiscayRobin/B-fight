@@ -160,12 +160,8 @@ class Balls extends Game {
 
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Count the squares! </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-        </View>
+        <Text style={styles.title}> Count the squares! </Text>
+        <Text style={styles.text}> Number of health points: {global.lives}. </Text>
         <View style={{flex:1, overflow: 'hidden', backgroundColor: '#deeaee', width: wp('90%'), height: hp('60%'), alignSelf: 'center' }}>
           {
             this.balls.map(((ball, key) => {
@@ -203,19 +199,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('10%'),
-    width: wp('100%')
-  },
   buttonWrapper: {
     height: hp('30%'),
     width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  textWrapper: {
-    height: hp('10%'),
-    width: wp('100%')
   },
   title: {
     textAlign: "center",
@@ -228,7 +216,7 @@ const styles = StyleSheet.create({
     color: '#eea29a'
   },
   ball: {
-    borderRadius: 10,
+    borderRadius: hp('1%'),
     width: wp('5%'),
     height: wp('5%'),
     position: 'absolute',
