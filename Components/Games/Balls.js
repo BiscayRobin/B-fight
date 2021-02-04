@@ -120,7 +120,7 @@ class Balls extends Game {
   moveBall(ball) {
     const nBall = Object.assign({}, ball);
     const borderW = wp('85%');
-    const borderH = hp('50%');
+    const borderH = hp('60%');
     nBall.x += nBall.speedX;
     nBall.y += nBall.speedY;
     if (nBall.x <= 0) { // border left
@@ -206,14 +206,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   title: {
+    marginTop: hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
   },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
-    color: '#eea29a'
+    fontSize: wp('4%'),
+    color: '#eea29a',
+    marginBottom:hp('2%')
   },
   ball: {
     borderRadius: hp('1%'),
