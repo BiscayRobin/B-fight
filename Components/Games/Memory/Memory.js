@@ -108,9 +108,7 @@ class Memory extends Game {
   gameWon(){
     this.addToScore(this.SCORE);
     this.resetCards();
-    if (this.loseLives()) {
-      this.next();
-    }
+    this.next();
   }
 
   // Function that is called when the page is unmount

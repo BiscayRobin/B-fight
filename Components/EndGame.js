@@ -132,8 +132,8 @@ const styles = StyleSheet.create({
       alignItems: 'center'
     },
     textWrapper: {
-      height: hp('10%'), // 10% of height device screen
-      width: wp('100%')   // 100% of width device screen
+      height: hp('10%'),
+      width: wp('100%')
     },
     title: {
       textAlign: "center",

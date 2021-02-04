@@ -71,8 +71,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#92a8d1'
   },
   buttonWrapper: {
-    height: hp('30%'), // 5% of height device screen
-    width: wp('100%'),   // 100% of width device screen
+    height: hp('30%'),
+    width: wp('100%'),
+    marginVertical: hp('5%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
