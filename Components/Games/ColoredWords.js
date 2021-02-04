@@ -125,7 +125,8 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     height: hp('20%'),
     width: wp('100%'),
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
     marginVertical:hp('2%'),

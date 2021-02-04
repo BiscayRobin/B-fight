@@ -176,18 +176,20 @@ class Balls extends Game {
         </View>
         <View style={{ backgroundColor: '#b1cbbb', width: wp('90%'), height: hp('24%'), alignSelf: 'center' }}>
           <View style={{ flex: 1, justifyContent: 'center', alignSelf: 'center', flexDirection: 'column' }}>
-            <View style={{ justifyContent: 'center' }}>
-              <View style={[styles.ball, { backgroundColor: this.chosenColor, width: wp('2%'), height: wp('2%') }]}></View>
-            </View>
             <TextInput style={[styles.text, { marginBottom: '1%' }]} autoCorrect={false}
               ref={input => { this.textInput = input }}
               underlineColorAndroid="transparent"
               placeholder="Answer"
               onChangeText={this.handleAnswer} />
-            <Button
-              type="solid" raised="true" color='#034f84' title='Submit'
-              onPress={() => this.validate(this.state.answer)}>
-            </Button>
+            <View style={{justifyContent:'center',height:wp('5%'),alignItems: 'center'}}>
+              <View style={[styles.ball, { backgroundColor: this.chosenColor, width: wp('5%'), height: wp('5%'), justifyContent:'center'}]}></View>
+            </View>
+            <View style={styles.buttonWrapper}>
+              <Button
+                type="solid" raised="true" color='#034f84' title='Submit'
+                onPress={() => this.validate(this.state.answer)}>
+              </Button>
+            </View>
           </View>
         </View>
       </View>
