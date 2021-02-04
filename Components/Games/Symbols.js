@@ -151,17 +151,13 @@ const styles = StyleSheet.create({
     height: wp('5%'),
     resizeMode: "stretch"
   },
-  separator: {
-    height: hp('5%'),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
   image: {
     width: wp('10%'),
     height: wp('10%')
   },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
+    fontSize: wp('4%'),
     color: '#c94c4c'
   }
 })
