@@ -50,11 +50,11 @@ class Menu extends React.Component {
         <View style={styles.buttonWrapper}>
           <Button type="solid" raised="true" color='#034f84' title="Single Player" onPress={() => navigate('Single')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" Multi Player " onPress={() => navigate('Multi')} />
+          <Button type="solid" raised="true" color='#034f84' title="Multi Player" onPress={() => navigate('Multi')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title="     About us    " onPress={() => navigate('AboutUs')}/>
+          <Button type="solid" raised="true" color='#034f84' title="About us" onPress={() => navigate('AboutUs')}/>
           <Separator />
-          <TouchableOpacity onPress={this.switchChar}>
+          <TouchableOpacity style={styles.audioWrapper} onPress={this.switchChar}>
             {this.showAudio()}
           </TouchableOpacity>
         </View>
@@ -68,7 +68,9 @@ class Menu extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#92a8d1'
+    backgroundColor: '#92a8d1',
+    flexDirection: 'column',
+    justifyContent:'space-between'
   },
   buttonWrapper: {
     height: hp('30%'),
@@ -91,7 +93,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
   audio:{
-    fontSize: hp('5%')
+    fontSize: wp('5%')
+  },
+  audioWrapper: {
+    width: wp('5%'),
+    height: wp('5%')
   }
 })
 

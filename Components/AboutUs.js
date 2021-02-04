@@ -18,6 +18,7 @@ class AboutUs extends React.Component {
         <Text style={styles.title}> Do you want to thank us? </Text>
         <Text style={styles.text}> If you want to thank us or give us more ways to improve our application,
         you can make a donation here: https://www.buymeacoffee.com/b-fight</Text>
+        <View style={{heigh:hp('2%')}}></View>
       </View>
     )
   }
@@ -26,7 +27,8 @@ class AboutUs extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#92a8d1'
+    backgroundColor: '#92a8d1',
+    justifyContent:'space-between'
   },
   title: {
     textAlign: "center",

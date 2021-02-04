@@ -16,7 +16,7 @@ class Single extends React.Component {
           <Separator />
           <Button type="solid" raised="true" color='#034f84' title=" HighScore " onPress={() => navigate('HighScore')} />
           <Separator />
-          <Button type="solid" raised="true" color='#034f84' title=" Calculation " onPress={() => navigate('Calculation')} />
+          <Button type="solid" raised="true" color='#034f84' title=" Balls " onPress={() => navigate('Balls')} />
         </View>
         <Separator />
         <Text style={styles.version}> Version 1.0 </Text>

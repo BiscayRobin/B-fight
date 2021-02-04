@@ -121,7 +121,7 @@ class Balls extends Game {
   moveBall(ball) {
     const nBall = Object.assign({}, ball);
     const borderW = wp('85%');
-    const borderH = hp('50%');
+    const borderH = hp('60%');
     nBall.x += nBall.speedX;
     nBall.y += nBall.speedY;
     if (nBall.x <= 0) { // border left
@@ -161,12 +161,8 @@ class Balls extends Game {
 
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Count the squares! </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-        </View>
+        <Text style={styles.title}> Count the squares! </Text>
+        <Text style={styles.text}> Number of health points: {global.lives}. </Text>
         <View style={{flex:1, overflow: 'hidden', backgroundColor: '#deeaee', width: wp('90%'), height: hp('60%'), alignSelf: 'center' }}>
           {
             this.balls.map(((ball, key) => {
@@ -204,32 +200,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('10%'),
-    width: wp('100%')
-  },
   buttonWrapper: {
     height: hp('30%'),
     width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
-  textWrapper: {
-    height: hp('10%'),
-    width: wp('100%')
-  },
   title: {
+    marginTop: hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
   },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
-    color: '#eea29a'
+    fontSize: wp('4%'),
+    color: '#eea29a',
+    marginBottom:hp('2%')
   },
   ball: {
-    borderRadius: 10,
+    borderRadius: hp('1%'),
     width: wp('5%'),
     height: wp('5%'),
     position: 'absolute',

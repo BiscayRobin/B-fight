@@ -121,18 +121,17 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: '#92a8d1',
       overflow: 'hidden',
-      flexDirection:'column'
+      flexDirection:'column',
+      justifyContent:'space-between'
     },
     confetti: {
       flex: 1
     },
     buttonWrapper: {
-      height: hp('30%'),
-      width: wp('100%'),
-      justifyContent: 'center',
       alignItems: 'center'
     },
     title: {
+      marginVertical: hp('2%'),
       textAlign: "center",
       fontSize: wp('5%'),
       color: '#f7786b'
