@@ -3,10 +3,6 @@ import { StyleSheet, View, Button, Text, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Game} from './Game'
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
-
 class Calculation extends Game {
   // Constructor
   constructor(props){
@@ -102,7 +98,7 @@ class Calculation extends Game {
 
     return (
       <View style={styles.container}>
-        <Text style={styles.title}> Do the calculations without making a mistake ! </Text>
+          <Text style={styles.title}> Do the calculations without making a mistake ! </Text>
           <Text style={styles.text}> Number of health points: {global.lives}. </Text>
           <Text style={styles.title}> {this.calcul} </Text>
           <TextInput style={styles.text} autoCorrect={false}
@@ -141,13 +137,9 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
+    fontSize: wp('4%'),
     color: '#c94c4c'
-  },
-  separator: {
-    height: hp('2%'),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+  }
 })
 
 export default Calculation

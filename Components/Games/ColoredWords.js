@@ -3,10 +3,6 @@ import { StyleSheet, View, Button, Text, TextInput } from 'react-native'
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import {Game} from './Game'
 
-const Separator = () => (
-  <View style={styles.separator} />
-);
-
 class ColoredWords extends Game {
   // Constructor
   constructor(props){
@@ -98,27 +94,17 @@ class ColoredWords extends Game {
 
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Copy the word without being influenced by its color ! </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={{textAlign: "center", fontSize: hp('5%'), color: this.color, fontWeight: "bold"}}>
+        <Text style={styles.title}> Copy the word without being influenced by its color ! </Text>
+        <Text style={styles.text}> Number of health points: {global.lives}. </Text>
+        <Text style={{textAlign: "center", fontSize: hp('5%'), color: this.color, fontWeight: "bold"}}>
             {this.word}
-          </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          <TextInput style={styles.text} autoCorrect={false}
+        </Text>
+        <TextInput style={styles.text} autoCorrect={false}
           ref={input => { this.textInput = input }}
           underlineColorAndroid = "transparent"
           placeholder = "Answer"
           onChangeText = {this.handleAnswer} />
-        </View>
-        <View style={styles.textWrapper}>
-          <Text style={styles.text}> {this.message} </Text>
-        </View>
+        <Text style={styles.text}> {this.message} </Text>
         <View style={styles.buttonWrapper}>
           <Button
               type="solid" raised="true" color='#034f84' title='Submit'
@@ -135,34 +121,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('5%'),
-    width: wp('100%')
-  },
   buttonWrapper: {
     height: hp('20%'),
     width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
   },
-  textWrapper: {
-    height: hp('2%'),
-    width: wp('100%')
-  },
   title: {
+    marginVertical:hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
   },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
+    fontSize: wp('4%'),
     color: '#c94c4c'
-  },
-  separator: {
-    height: hp('2%'),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+  }
 })
 
 export default ColoredWords;
