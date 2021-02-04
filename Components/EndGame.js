@@ -120,20 +120,17 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#92a8d1',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      flexDirection:'column'
     },
     confetti: {
-      width: wp('50%')
+      flex: 1
     },
     buttonWrapper: {
       height: hp('30%'),
       width: wp('100%'),
       justifyContent: 'center',
       alignItems: 'center'
-    },
-    textWrapper: {
-      height: hp('10%'),
-      width: wp('100%')
     },
     title: {
       textAlign: "center",

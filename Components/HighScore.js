@@ -61,12 +61,8 @@ class HighScore extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> HighScore </Text>
-        </View>
-        <View style={styles.textWrapper}>
-          {items}
-        </View>
+        <Text style={styles.title}> HighScore </Text>
+        {items}
       </View>
     )
   }
@@ -76,22 +72,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#92a8d1',
-    flexDirection:'column'
-  },
-  titleWrapper: {
-    height: hp('20%'),
-    width: wp('100%')
-  },
-  textWrapper: {
+    flexDirection:'column',
+    overflow: 'scroll'
   },
   title: {
     textAlign: "center",
-    fontSize: wp('8%'),
+    fontSize: wp('5%'),
     color: '#f7786b'
   },
   text: {
     textAlign: "center",
-    fontSize: wp('5%'),
+    fontSize: wp('4%'),
     color: '#eea29a'
   },
 })
