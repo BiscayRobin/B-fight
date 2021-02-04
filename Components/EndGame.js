@@ -102,7 +102,7 @@ class EndGame extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-          <Text style={[styles.title,{marginTop: hp('20%')}]}>{msg}</Text>
+          <Text style={[styles.title,{marginTop: hp('35%')}]}>{msg}</Text>
           <Text style={styles.title}>Your score is : {global.score}</Text>
           {adv}
         <View style={styles.buttonWrapper}>
@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     },
     title: {
       textAlign: "center",
+      marginBottom:hp('5%'),
       fontSize: wp('5%'),
       color: '#f7786b'
     },
