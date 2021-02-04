@@ -59,9 +59,7 @@ class Menu extends React.Component {
           </TouchableOpacity>
         </View>
         <Separator />
-        <View style={styles.textWrapper}>
-          <Text style={styles.version}> Version 1.0 </Text>
-        </View>
+        <Text style={styles.version}> Version 1.0 </Text>
       </View>
     )
   }
@@ -77,10 +75,6 @@ const styles = StyleSheet.create({
     width: wp('100%'),   // 100% of width device screen
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  textWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
   },
   title: {
     marginVertical: hp('2%'),

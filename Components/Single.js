@@ -19,9 +19,7 @@ class Single extends React.Component {
           <Button type="solid" raised="true" color='#034f84' title=" Calculation " onPress={() => navigate('Calculation')} />
         </View>
         <Separator />
-        <View style={styles.textWrapper}>
-          <Text style={styles.version}> Version 1.0 </Text>
-        </View>
+        <Text style={styles.version}> Version 1.0 </Text>
       </View>
     )
   }
@@ -32,19 +30,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
-  },
   buttonWrapper: {
     height: hp('30%'), // 5% of height device screen
     width: wp('100%'),   // 100% of width device screen
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  textWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
   },
   title: {
     textAlign: "center",
