@@ -11,7 +11,7 @@ Le serveur est écrit en NodeJs. L'installation des dépendances se fait avec la
 Pour le lancer, il faut utiliser la commande `node index.js`.
 
 ## Connection au serveur
-Afin de se connecter au serveur pour tester les fonctionnalités en ligne, il est nécessaire de modifier la ligne `const IP = '127.0.0.1'` par l'adresse de la machine hébergeant le serveur. Il est possible qu'une redirection de port doive être effectué si les deux appareils ne sont pas présents sur le même réseau. Le port à rediriger est le port 8000. Si l'acceptation de requêtes CORS est nécessaires celles-ci peuvent être acceptées par le serveur en modifiant l'adresse des lignes suivantes dans le fichier server/index.js:
+Afin de se connecter au serveur pour tester les fonctionnalités en ligne, il est nécessaire de modifier la ligne `const IP = '127.0.0.1'` par l'adresse de la machine hébergeant le serveur. Il est possible qu'une redirection de port doive être effectué si les deux appareils ne sont pas présents sur le même réseau. Le port à rediriger est le port 8000. Si l'acceptation de requêtes CORS est nécessaire, celles-ci peuvent être acceptées par le serveur en modifiant l'adresse des lignes suivantes dans le fichier server/index.js:
 ```
 cors:{
     origin: "http://localhost:19006",

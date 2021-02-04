@@ -128,35 +128,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
-  },
   buttonWrapper: {
     height: hp('30%'), // 5% of height device screen
     width: wp('100%'),   // 100% of width device screen
     justifyContent: 'center',
     alignItems: 'center'
   },
-  textWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
-  },
   title: {
+    marginVertical:hp('2%'),
     textAlign: "center",
     fontSize: wp('5%'),
     color: '#f7786b'
   },
-  version: {
-    textAlign: "center"
-  },
-  separator: {
-    height: hp('5%'),
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
   text: {
     textAlign: "center",
-    fontSize: wp('2%'),
+    fontSize: wp('4%'),
     color: '#c94c4c'
   }
 })
