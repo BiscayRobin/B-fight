@@ -102,25 +102,15 @@ class Calculation extends Game {
 
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Do the calculations without making a mistake ! </Text>
-        </View>
-        <View style={styles.textWrapper}>
+        <Text style={styles.title}> Do the calculations without making a mistake ! </Text>
           <Text style={styles.text}> Number of health points: {global.lives}. </Text>
-        </View>
-        <View style={styles.titleWrapper}>
           <Text style={styles.title}> {this.calcul} </Text>
-        </View>
-        <View style={styles.textWrapper}>
           <TextInput style={styles.text} autoCorrect={false}
           ref={input => { this.textInput = input }}
           underlineColorAndroid = "transparent"
           placeholder = "Answer"
           onChangeText = {this.handleAnswer} />
-        </View>
-        <View style={styles.textWrapper}>
           <Text style={styles.text}> {this.message} </Text>
-        </View>
         <View style={styles.buttonWrapper}>
           <Button
               type="solid" raised="true" color='#034f84' title='Submit'
@@ -137,21 +127,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#92a8d1'
   },
-  titleWrapper: {
-    height: hp('5%'),
-    width: wp('100%'),
-    alignItems:'center',
-    justifyContent:'center'
-  },
   buttonWrapper: {
     height: hp('20%'),
     width: wp('100%'),
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  textWrapper: {
-    height: hp('2%'),
-    width: wp('100%')
   },
   title: {
     textAlign: "center",

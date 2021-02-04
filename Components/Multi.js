@@ -20,9 +20,7 @@ class Multi extends React.Component {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
-        <View style={styles.titleWrapper}>
-          <Text style={styles.title}> Welcome to B-fight ! </Text>
-        </View>
+        <Text style={styles.title}> Welcome to B-fight ! </Text>
         <View style={styles.buttonWrapper}>
           <Button type="solid" raised="true" color='#034f84' title="Join Game" onPress={() => navigate('Join')} />
         </View>
@@ -35,10 +33,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#92a8d1'
-  },
-  titleWrapper: {
-    height: hp('10%'), // 5% of height device screen
-    width: wp('100%')   // 100% of width device screen
   },
   buttonWrapper: {
     height: hp('30%'), // 5% of height device screen
