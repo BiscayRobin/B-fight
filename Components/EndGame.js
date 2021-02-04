@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
       backgroundColor: '#92a8d1',
       overflow: 'hidden',
       flexDirection:'column',
-      justifyContent:'space-between'
+      justifyContent:'center'
     },
     confetti: {
       flex: 1
